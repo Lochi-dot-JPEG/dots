@@ -1,0 +1,31 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+#GBA development stuff here
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=/opt/devkitpro/devkitARM
+export DEVKITPPC=/opt/devkitpro/devkitPPC
+export PATH=$DEVKITARM/bin:$DEVKITPRO/tools/bin:$PATH  # optional
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias game='cd ~/Documents/Game/'
+alias blahajfetch="fastfetch --logo blahaj"
+PS1='[\u@\h \W]\$ '
+alias vim="nvim"
+alias vi="nvim"
+alias oo="cd ~/vaults/brain/"
+alias ncdu="dua i & echo 'use dua'"
+alias dua="dua i"
+
+xset r rate 200 30
+
+# run blahajfetch on terminal open
+#blahajfetch
+
+# Created by `pipx` on 2024-11-03 06:02:38
+export PATH="$PATH:$HOME/.local/bin"
