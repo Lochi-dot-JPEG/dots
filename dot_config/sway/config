@@ -97,7 +97,8 @@ input "type:keyboard" {
 
     bindsym $mod+b exec $bookmarks
     bindsym $mod+Tab exec $wallpaper
-    bindsym $mod+p exec $HOME/.cargo/bin/quickrunner
+    bindsym $mod+p exec sh -c $HOME/Scripts/quickrun.sh
+    #bindsym $mod+p exec $HOME/.cargo/bin/quickrunner
 
     # Kill focused window
     bindsym $mod+q kill
@@ -249,6 +250,7 @@ bindsym $mod+r mode "resize"
 
     bindsym Print exec grim
 
+for_window [app_id="zenity"] floating enable
 #
 # Status Bar:
 #

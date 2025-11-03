@@ -2,22 +2,15 @@
 
 cd $HOME/Brain/
 
-echo "Pulling..."
+notify-send "Pulling..." --expire-time 2000
 git pull
-printf "Status:\n\n"
 git add .
-git status --short
-
-while true; do
-    echo ""
-    read -p "Do you want to stage all and commit? (y/n) (l)azygit " yn
-    case $yn in
-        [yY] ) echo "Proceeding..."; break;;
-        [nN] ) echo "Exiting..."; git restore --staged .; exit;;
-        [lL] ) lazygit; exit;;
-        * ) echo "Invalid response. Please answer 'l', 'y' or 'n'.";;
-    esac
-done
-git commit -m "Automated commit $(date +%F)"
-git push
-lazygit
+STATUS="Do you want to commit? "$(git status --short)
+if zenity  --question --text="$STATUS"; then
+		git commit -m "Automated commit $(date +%F)"
+		git push
+		kitty lazygit
+else
+		git restore --staged .
+		exit
+fi
