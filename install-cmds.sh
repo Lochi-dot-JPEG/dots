@@ -28,6 +28,7 @@ hyprland \
 cliphist \
 swaync \
 termdown \
+tlp \ # only really needed for laptop
 wtype
 
 mkdir ~/Pictures/Screenshots
@@ -46,3 +47,7 @@ systemctl --user enable --now mpDris2.service
 git clone https://github.com/supermariofps/hatsune-miku-windows-linux-cursors /tmp/mikucursors 
 cp /tmp/mikucursors/miku-cursor-linux ~/.local/share/icons/
 
+# enable tlp.service
+# enable NetworkManager-dispatcher.service
+# mask systemd-rfkill.service as per https://wiki.archlinux.org/title/TLP
+# mask systemd-rfkill.socket

@@ -11,6 +11,7 @@ declare -A links=(
 [Bookmarks]=bookmarks.sh
 [Play random album]=push_notes.sh
 [Pick album]=play_album.zsh
+[Textbooks]=textbook.sh
 )
 
 KEYS=""
