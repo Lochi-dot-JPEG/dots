@@ -3,4 +3,7 @@
 TEXTBOOKS=$HOME/Documents/textbooks
 BOOKS=$(ls $TEXTBOOKS)
 BOOK=$(echo $BOOKS | rofi -dmenu -case-smart)
-zathura "$TEXTBOOKS/$BOOK"
+
+if [[ "$BOOK" != "" ]]; then
+		zathura "$TEXTBOOKS/$BOOK"
+fi

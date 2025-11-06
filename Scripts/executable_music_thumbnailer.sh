@@ -2,12 +2,12 @@
 
 FOLDER=$1
 
-OUTPUT_PATH=/tmp/musicthumbnails/
+OUTPUT_PATH=$HOME/.cache/musicthumbnails
 MUSIC_DIRECTORY=$HOME/Music/Music
 
 mkdir -p $OUTPUT_PATH
 
-if [ -f "/tmp/musicthumbnails/$FOLDER.jpg" ]; then
+if [ -f "$OUTPUT_PATH/$FOLDER.jpg" ]; then
 		exit
 fi
 
@@ -24,6 +24,6 @@ if [ ! -f "$COVER" ]; then
 		fi
 fi
 if [ -n "$COVER" ]; then
-		ffmpeg -i "$COVER" -vf scale=128:128 -y "/tmp/musicthumbnails/$FOLDER.jpg"
+		ffmpeg -i "$COVER" -vf scale=128:128 -y "$OUTPUT_PATH/$FOLDER.jpg"
 		notify-send "Saved $1"
 fi

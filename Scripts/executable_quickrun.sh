@@ -9,7 +9,7 @@ CATEGORY="GENERAL"
 declare -A links=(
 [Push Notes]=push_notes.sh
 [Bookmarks]=bookmarks.sh
-[Play random album]=push_notes.sh
+[Play random album]=random_album.zsh
 [Pick album]=play_album.zsh
 [Textbooks]=textbook.sh
 )

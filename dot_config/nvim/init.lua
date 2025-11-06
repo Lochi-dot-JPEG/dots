@@ -53,7 +53,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Add packages
 require("plugin.snacks")
 vim.pack.add({
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{ src = "https://github.com/nvim-nreesitter/nvim-treesitter" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/folke/zen-mode.nvim" },
 	{
@@ -62,6 +62,7 @@ vim.pack.add({
 	},
 	{ src = "https://github.com/ziontee113/color-picker.nvim" },
 	{ src = "https://github.com/BurntSushi/ripgrep" },
+	{ src = "https://github.com/seblyng/roslyn.nvim" },
 	{ src = "https://github.com/sharkdp/fd" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
@@ -84,6 +85,10 @@ require("lspconfig")["tinymist"].setup({
 })
 
 require("mason").setup({
+	registries = {
+		"github:mason-org/mason-registry",
+		"github:Crashdummyy/mason-registry",
+	},
 	ensure_installed = {
 		"tinymist",
 	},
