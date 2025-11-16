@@ -62,7 +62,14 @@ vim.pack.add({
 	},
 	{ src = "https://github.com/ziontee113/color-picker.nvim" },
 	{ src = "https://github.com/BurntSushi/ripgrep" },
-	{ src = "https://github.com/seblyng/roslyn.nvim" },
+	{
+		src = "https://github.com/seblyng/roslyn.nvim",
+		{
+			opts = {
+				filewatching = "auto",
+			}
+		}
+	},
 	{ src = "https://github.com/sharkdp/fd" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
@@ -76,14 +83,6 @@ vim.pack.add({
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 })
 
-require("lspconfig")["tinymist"].setup({
-	settings = {
-		formatterMode = "typstyle",
-		exportPdf = "onType",
-		semanticTokens = "disable",
-	},
-})
-
 require("mason").setup({
 	registries = {
 		"github:mason-org/mason-registry",
@@ -91,6 +90,8 @@ require("mason").setup({
 	},
 	ensure_installed = {
 		"tinymist",
+		"roslyn",
+		"rzls",
 	},
 })
 require("color-picker").setup()
@@ -154,6 +155,7 @@ require("nvim-treesitter.configs").setup({
 		"rust",
 		"c",
 		"css",
+		"c_sharp",
 		"html",
 		"lua",
 		"luadoc",
@@ -226,4 +228,19 @@ vim.lsp.enable({
 	"clangd",
 	"gdscript",
 	"markdownlint-cli2",
+	"css-variables-language-server",
+	"css-lsp",
+	"python-lsp-server",
+
+
 })
+
+vim.lsp.config("tinymist",
+	{
+		settings = {
+			formatterMode = "typstyle",
+			exportPdf = "onType",
+			semanticTokens = "disable",
+		},
+	})
+vim.lsp.config("roslyn", {})
