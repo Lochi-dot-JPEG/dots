@@ -53,7 +53,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Add packages
 require("plugin.snacks")
 vim.pack.add({
-	{ src = "https://github.com/nvim-nreesitter/nvim-treesitter" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/folke/zen-mode.nvim" },
 	{
