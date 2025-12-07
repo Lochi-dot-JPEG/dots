@@ -7,6 +7,7 @@ DIRS=(
     "$HOME"
     "$HOME/Game"
     "$HOME/Projects"
+    "$HOME/Videos"
 )
 
 SINGLE_DIRS=(
