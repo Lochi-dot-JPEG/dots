@@ -12,6 +12,7 @@ declare -A links=(
 [Play random album]=random_album.zsh
 [Pick album]=play_album.zsh
 [Textbooks]=textbook.sh
+[Generate thumbnails]=generate_all_album_thumbnails.sh
 )
 
 KEYS=""

@@ -13,9 +13,9 @@ done
 echo $ROFIIN
 ALBUM=$(echo -en "$ROFIIN" | shuf | rofi -dmenu -case-smart -l 6 -p " " -show-icons -theme-str '
 #element-text { horizontal-align: 0.5; }
-#element-icon  { size: 96px; } 
+#element-icon  { size: 128px; } 
 #listview { expand: false; columns: 5; } 
-#element { orientation: vertical; }' -font "mono 10")
+#element { orientation: vertical; }' -font "JetBrains Mono 8")
 
 echo "Album = $ALBUM"
 

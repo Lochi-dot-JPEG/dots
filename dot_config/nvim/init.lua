@@ -56,6 +56,8 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/folke/zen-mode.nvim" },
+
+	{ src = "https://github.com/cbochs/grapple.nvim" },
 	{
 		src = "https://github.com/saghen/blink.cmp",
 		version = vim.version.range("1.x"),
@@ -244,3 +246,14 @@ vim.lsp.config("tinymist",
 		},
 	})
 vim.lsp.config("roslyn", {})
+
+-- Lua
+vim.keymap.set("n", "<leader>a", require("grapple").toggle)
+vim.keymap.set("n", "<leader>e", require("grapple").toggle_tags)
+
+-- User command
+
+map("n", "<leader>j", "<cmd>Grapple select index=1<cr>", { desc = "Select tag 1" })
+map("n", "<leader>k", "<cmd>Grapple select index=2<cr>", { desc = "Select tag 2" })
+map("n", "<leader>l", "<cmd>Grapple select index=3<cr>", { desc = "Select tag 3" })
+map("n", "<leader>;", "<cmd>Grapple select index=4<cr>", { desc = "Select tag 4" })
