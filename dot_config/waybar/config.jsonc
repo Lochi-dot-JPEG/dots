@@ -2,17 +2,19 @@
 {
     // "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 5, // Waybar height (to be removed for auto height)
     //"width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 8, // Gaps between modules
     // Choose the order of the modules
     "modules-left": [
         "custom/power",
         "tray",
         "hyprland/workspaces",
         "sway/workspaces",
+		"ext/workspaces",
     ],
-    "modules-center": [],
+    "modules-center": [
+        "custom/task",
+	],
     "modules-right": [
         //"mpd",
         //"idle_inhibitor",
@@ -60,6 +62,7 @@
 			},
         "all-outputs": true,
         "format": "{icon}",
+		/*
         "format-icons": {
                 "1": "󰝚",
                 "2": "",
@@ -67,7 +70,7 @@
                 "4": " ",
                 "5": "󰙨",
                 "default": ""
-            },
+            },*/
     },
     "keyboard-state": {
         "numlock": true,
@@ -222,6 +225,14 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         //"exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
+    "custom/task": {
+        "format": "{text}",
+        "return-type": "",
+        "max-length": 300,
+        "escape": true,
+		"interval": 3,
+        "exec": "$HOME/Scripts/get_current_task.sh" // Script in resources folder
+    },
     "custom/power": {
         "format" : "⏻ ",
         "tooltip": false,
@@ -285,4 +296,15 @@
     },
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)"
+
+  "ext/workspaces": {
+    "format": "{icon}",
+    "ignore-hidden": true,
+    "on-click": "activate",
+    "on-click-right": "deactivate",
+    "sort-by-id": true
+  },
+  "dwl/window": {
+    "format": "[{layout}] {title}"
+  }
 }

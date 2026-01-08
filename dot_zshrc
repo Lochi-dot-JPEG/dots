@@ -23,7 +23,6 @@ alias grep='grep --color=auto'
 alias game='cd /home/lochie/Documents/Game/'
 alias blahajfetch="fastfetch --logo blahaj"
 PS1='[\u@\h \W]\$ '
-alias vim="nvim"
 alias vi="nvim"
 alias chz="chezmoi"
 alias lg="lazygit"

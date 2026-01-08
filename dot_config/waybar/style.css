@@ -7,15 +7,17 @@
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: JetBrainsMono Nerd Font;
-  font-size: 13px;
+  font-family: JetBrains Mono Light;
+  font-size: 14px;
+}
+#waybar {
+  padding: 5px;
+  margin: 16px;
 }
 
 window#waybar {
   background-color: @bg;
   color: @fg;
-  transition-property: background-color;
-  transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
@@ -134,6 +136,12 @@ button:hover {
   padding: 0 10px;
   color: @fg;
   background-color: @pane;
+}
+
+#custom-task {
+  padding: 0 10px;
+  color: @fg;
+  background-color: @pane2;
 }
 
 #window,

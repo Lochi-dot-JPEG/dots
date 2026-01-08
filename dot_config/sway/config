@@ -57,6 +57,7 @@ exec nm-applet
 exec $wallpaper
 exec otd-daemon
 
+
 default_border none
 mouse_warping container
 
@@ -271,5 +272,7 @@ bar {
     #    inactive_workspace #32323200 #32323200 #5c5c5c
     #}
 }
+
+gaps outer 7 
 
 include /etc/sway/config.d/*

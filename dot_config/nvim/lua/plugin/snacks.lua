@@ -31,7 +31,7 @@ map("n", "<leader>n", function() picker.notifications() end, { desc = "Notificat
 map("n", "<leader>ec", function() picker.files({ cwd = "~/.config/nvim/" }) end, { desc = "Remove this command later" })
 map("n", "<leader>sN", function() picker.files({ cwd = "~/.config/lazynvim/" }) end,
 	{ desc = "Remove this command later, searches old config" })
-map("n", "<leader>sn",      function() picker.files({ cwd = "~/.local/share/chezmoi" }) end,{ desc = "Find Config File" })
+map("n", "<leader>sn", function() picker.files({ cwd = "~/.local/share/chezmoi" }) end, { desc = "Find Config File" })
 map("n", "<leader>so", function() picker.files({ cwd = "~/Brain" }) end, { desc = "Search Obsidian" })
 map("n", "<leader>sf", function() picker.files() end, { desc = "Find Files" })
 map("n", "<leader>sr", function() picker.recent() end, { desc = "Recent Files" })
@@ -59,4 +59,3 @@ map("n", "gI", function() picker.lsp_implementations() end, { desc = "Goto Imple
 map("n", "gy", function() picker.lsp_type_definitions() end, { desc = "Goto T[y]pe Definition" })
 map("n", "<leader>ss", function() picker.lsp_symbols() end, { desc = "LSP Symbols" })
 map("n", "<leader>sS", function() picker.lsp_workspace_symbols() end, { desc = "LSP Workspace Symbols" })
-

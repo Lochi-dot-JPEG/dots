@@ -57,7 +57,13 @@ vim.pack.add({
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/folke/zen-mode.nvim" },
 
-	{ src = "https://github.com/cbochs/grapple.nvim" },
+	{
+		src = "https://github.com/cbochs/grapple.nvim",
+		opts = {
+			icons = false,
+		}
+
+	},
 	{
 		src = "https://github.com/saghen/blink.cmp",
 		version = vim.version.range("1.x"),
@@ -72,7 +78,6 @@ vim.pack.add({
 			}
 		}
 	},
-	{ src = "https://github.com/sharkdp/fd" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
 	{ src = "https://github.com/lambdalisue/vim-suda" },
@@ -193,12 +198,10 @@ map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 -- Typst
 
 require("typst-preview").setup({
-	open_cmd = "qutebrowser %s --target tab",
+	open_cmd = "exo-open %s",
 })
 map("n", "<leader>tp", ":TypstPreviewToggle<cr>", { desc = "[T]ypst [P]review", noremap = true, silent = true })
---map("n", "<leader>tp", ":TypstPreviewFollowCursor<cr>", { desc = "[T]ypst [P]review", noremap = true, silent = true })
 
--- TODO find a toggleterm alternative this is so bloated
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
 	cmd = "lazygit",
@@ -223,6 +226,9 @@ end
 
 map("n", "<leader>h", "<cmd>lua _lazygit_toggle()<CR>", { desc = "Open Lazygit", noremap = true, silent = true })
 
+require "lspconfig".qmlls.setup {
+	cmd = { "qmlls", "-E" }
+}
 vim.lsp.enable({
 	"lua_ls",
 	"tinymist",
@@ -233,6 +239,7 @@ vim.lsp.enable({
 	"css-variables-language-server",
 	"css-lsp",
 	"python-lsp-server",
+	"qmlls",
 
 
 })
