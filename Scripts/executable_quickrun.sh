@@ -12,7 +12,9 @@ declare -A links=(
 [Play random album]=random_album.zsh
 [Pick album]=play_album.zsh
 [Textbooks]=textbook.sh
+[Define]=define.sh
 [Generate thumbnails]=generate_all_album_thumbnails.sh
+[Godot code order]=godot_code_order.sh
 )
 
 KEYS=""

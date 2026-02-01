@@ -1,7 +1,7 @@
 [global]
 separator_color= frame
 font = Noto Sans
-origin = top-center
+origin = top-right
 offset = (0, 0)
 
 
