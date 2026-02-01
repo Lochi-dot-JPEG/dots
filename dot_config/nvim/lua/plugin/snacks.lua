@@ -10,6 +10,21 @@ require("snacks").setup({
 		layout = {
 			preset = "dropdown",
 		},
+		files = {
+			hidden = true,
+			ignored = false,
+			exclude = { "**.uid", "**/*.*.uid" },
+		},
+		grep = {
+			hidden = false,
+			ignored = false,
+			exclude = { "**.uid", "**/*.uid" },
+		},
+		explorer = {
+			hidden = true,
+			ignored = true,
+			exclude = { "**.uid", "**/*.uid" },
+		},
 	},
 	notifier = { enabled = true },
 	quickfile = { enabled = true },
@@ -21,6 +36,12 @@ require("snacks").setup({
 
 local map = vim.keymap.set
 local picker = require("snacks.picker")
+
+local source_opts = {
+
+	exclude = { ".git" }
+}
+
 map("n", "<leader><space>", function() picker.smart() end, { desc = "Smart Find Files" })
 map("n", "<leader>,", function() picker.buffers() end, { desc = "Buffers" })
 map("n", "<leader>:", function() picker.command_history() end, { desc = "Command History" })

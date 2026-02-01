@@ -179,6 +179,14 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 		--disable = { "markdown" },
 	},
+	-- disable for files bigger than 100 KB
+	disable = function(lang, buf)
+		local max_filesize = 100 * 1024 -- 100 KB
+		local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+		if ok and stats and stats.size > max_filesize then
+			return true
+		end
+	end,
 })
 
 -- --------------
@@ -194,6 +202,7 @@ map("n", "<leader>ff", ":Oil<cr>", { desc = "[F]iles Oil" })
 map({ "n", "v", "x" }, "<leader>fb", vim.lsp.buf.format, { desc = "Format buffer" })
 map("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+map("n", "<leader>r", vim.lsp.buf.rename)
 
 -- Typst
 
@@ -229,6 +238,19 @@ map("n", "<leader>h", "<cmd>lua _lazygit_toggle()<CR>", { desc = "Open Lazygit",
 require "lspconfig".qmlls.setup {
 	cmd = { "qmlls", "-E" }
 }
+
+vim.lsp.config('gdscript', {})
+
+vim.lsp.config("tinymist",
+	{
+		settings = {
+			formatterMode = "typstyle",
+			exportPdf = "onType",
+			semanticTokens = "disable",
+		},
+	})
+vim.lsp.config("roslyn", {})
+
 vim.lsp.enable({
 	"lua_ls",
 	"tinymist",
@@ -243,16 +265,6 @@ vim.lsp.enable({
 
 
 })
-
-vim.lsp.config("tinymist",
-	{
-		settings = {
-			formatterMode = "typstyle",
-			exportPdf = "onType",
-			semanticTokens = "disable",
-		},
-	})
-vim.lsp.config("roslyn", {})
 
 -- Lua
 vim.keymap.set("n", "<leader>a", require("grapple").toggle)
