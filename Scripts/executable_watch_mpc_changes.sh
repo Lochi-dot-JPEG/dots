@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true; do
+		mpc idle player &>/dev/null 
+		pkill -RTMIN+8 waybar
+done

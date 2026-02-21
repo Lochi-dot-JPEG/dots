@@ -52,6 +52,7 @@ exec_always kanshi
 exec_always dunst
 exec kitty --hold sh -c ~/Scripts/firstterm.sh
 exec sh ~/Scripts/mpd_start.sh
+exec sh ~/Scripts/watch_mpc_changes.sh
 exec steam -silent
 exec nm-applet
 exec $wallpaper

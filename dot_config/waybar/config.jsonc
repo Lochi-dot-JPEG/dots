@@ -20,12 +20,11 @@
         //"idle_inhibitor",
         //"custom/cmus",
         "custom/media",
+        "image#album-art",
         //"mpd",
         "pulseaudio",
         //"network",
         //"power-profiles-daemon",
-        "cpu",
-        "memory",
         //"temperature",
         "backlight",
         //"keyboard-state",
@@ -51,6 +50,13 @@
     //         "default": ""
     //     }
     // },
+	"image#album-art": {
+		"exec": "~/Scripts/get_album_art.sh",
+		"size": 28,
+		"interval": 100,
+		"signal": 8,
+		"on-click": "mpc toggle"
+	},
     "sway/workspaces": {
         "disable-scroll": true,
 		"persistent-workspaces": {
@@ -62,15 +68,7 @@
 			},
         "all-outputs": true,
         "format": "{icon}",
-		/*
-        "format-icons": {
-                "1": "󰝚",
-                "2": "",
-                "3": "",
-                "4": " ",
-                "5": "󰙨",
-                "default": ""
-            },*/
+		 "format-icons": { "1": "󰝚", "2": "", "3": "", "4": " ", "5": "󰙨", "default": "" },
     },
     "keyboard-state": {
         "numlock": true,
@@ -196,7 +194,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}%",
+        "format": "󰕾 {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "󰂲 {icon} {format_source}",
         "format-muted": "󰝟 {format_source}",
@@ -223,7 +221,6 @@
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        //"exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/task": {
         "format": "{text}",
@@ -270,8 +267,7 @@
     },
     "river/tags": {
         "num-tags": 5
-    }
-}
+    },
 "mpd": {
     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
     "format-disconnected": "Disconnected ",
@@ -296,6 +292,8 @@
     },
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)"
+},
+
 
   "ext/workspaces": {
     "format": "{icon}",
