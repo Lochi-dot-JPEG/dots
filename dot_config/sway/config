@@ -21,7 +21,8 @@ set $term kitty
 # Your preferred application launcher
 set $menu rofi -show drun
 
-set $browser zen-browser
+#set $browser zen-browser
+set $browser firefox
 set $altbrowser chromium
 set $bookmarks sh ~/Scripts/bookmarks.sh
 set $wallpaper sh ~/Scripts/swaywallpaper.sh
@@ -50,6 +51,7 @@ output eDP-1 resolution 1920x1200 position 1920,0
 # Automatically make the laptop screen turn off when on monitor
 exec_always kanshi
 exec_always dunst
+exec layman
 exec kitty --hold sh -c ~/Scripts/firstterm.sh
 exec sh ~/Scripts/mpd_start.sh
 exec sh ~/Scripts/watch_mpc_changes.sh
@@ -198,6 +200,9 @@ input "type:keyboard" {
     bindsym $mod+u resize shrink width 30px
     bindsym $mod+i resize grow width 30px
 
+# Layman layout stuff:
+		bindsym $mod+r exec layman swap master
+
     # Move focus to the parent container
     #bindsym $mod+a focus parent
 #
@@ -207,35 +212,35 @@ input "type:keyboard" {
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    #bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    #bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
-mode "resize" {
+#mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 20px
-    bindsym $down resize grow height 20px
-    bindsym $up resize shrink height 20px
-    bindsym $right resize grow width 20px
+    #bindsym $left resize shrink width 20px
+    #bindsym $down resize grow height 20px
+    #bindsym $up resize shrink height 20px
+    #bindsym $right resize grow width 20px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 20px
-    bindsym Down resize grow height 20px
-    bindsym Up resize shrink height 20px
-    bindsym Right resize grow width 20px
+    #bindsym Left resize shrink width 20px
+    #bindsym Down resize grow height 20px
+    #bindsym Up resize shrink height 20px
+    #bindsym Right resize grow width 20px
 
     # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
+    #bindsym Return mode "default"
+    #bindsym Escape mode "default"
+#}
+#bindsym $mod+r mode "resize"
 #
 # Utilities:
 #
@@ -260,8 +265,7 @@ for_window [app_id="zenity"] floating enable
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-    swaybar_command waybar
-    height 55
+    #height 55
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.

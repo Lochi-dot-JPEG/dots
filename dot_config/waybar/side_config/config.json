@@ -1,8 +1,7 @@
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": "28", // Waybar position (top|bottom|left|right)
+    "position": "left", // Waybar position (top|bottom|left|right)
     //"width": 1280, // Waybar width
     "spacing": 8, // Gaps between modules
     // Choose the order of the modules
@@ -18,19 +17,17 @@
 	],
     "modules-right": [
         "image#album-art",
-        "custom/media",
         "pulseaudio",
-        //"network",
-        //"power-profiles-daemon",
-        //"temperature",
         "backlight",
+        //"keyboard-state",
+        //"sway/language",
         "battery",
         "battery#bat2",
         "clock"
     ],
 	"image#album-art": {
 		"exec": "~/Scripts/get_album_art.sh",
-		"size": 28,
+		"size": 64,
 		"interval": 100,
 		"signal": 8,
 		"on-click": "mpc toggle"
@@ -46,7 +43,15 @@
 			},
         "all-outputs": true,
         "format": "{icon}",
-		// "format-icons": { "1": "󰝚", "2": "", "3": "", "4": " ", "5": "󰙨", "default": "" },
+		/*
+        "format-icons": {
+                "1": "󰝚",
+                "2": "",
+                "3": "",
+                "4": " ",
+                "5": "󰙨",
+                "default": ""
+            },*/
     },
     "keyboard-state": {
         "numlock": true,
@@ -109,8 +114,8 @@
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         //"tooltip-format": "<big>%d/%m | %a | %I:%M %p</big>",
-        "format-alt": "{:%d/%m | %a | %I:%M %p}",
-        "format": "{:%d/%m | %a | %R}"
+        "format-alt": "{:%d/%m\n%a\n%I:%M %p}",
+        "format": "{:%d/%m\n%a\n%R}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -172,7 +177,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "󰕾 {volume}%",
+        "format": "{volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "󰂲 {icon} {format_source}",
         "format-muted": "󰝟 {format_source}",
@@ -199,6 +204,7 @@
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        //"exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/task": {
         "format": "{text}",

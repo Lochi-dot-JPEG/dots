@@ -1,7 +1,12 @@
-
 #!/bin/sh
 
-TASK=$(cat "$HOME/Brain/notes/dailies/$(date +%Y-%m-%d.md)" | grep "[>]" | sed 's/- \[>\] //g')
+DAILYNOTEFILE="$HOME/Brain/notes/dailies/$(date +%Y-%m-%d.md)"
+
+if [ ! -f $DAILYNOTEFILE ]; then
+		exit;
+fi
+
+TASK=$(cat  | grep "[>]" | sed 's/- \[>\] //g')
 
 if [[ $TASK == "" ]]; then
 		exit;

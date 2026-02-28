@@ -8,7 +8,7 @@ ttf-ms-fonts \
 mpdris2
 
 pacman -Sy neovim \
-awesome \
+#awesome \
 which \
 dua-cli \
 ttf-jetbrains-mono \
@@ -19,15 +19,19 @@ lazygit \
 base-devel \
 lxappearance \
 feh \
-flameshot \
 xfce4-power-manager \
-variety \
+zathura \
 swappy \
 slurp \
 hyprland \
 cliphist \
-swaync \
+dunst \
+sway \
+mpd \
+rmpc \
 termdown \
+raylib \
+bear \
 tlp \ # only really needed for laptop
 wtype
 

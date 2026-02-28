@@ -9,7 +9,7 @@
 window {
     background-color: @background;
     border:           5;
-	border-radius:    15;
+	border-radius:    0;
     padding:          2;
 }
 
