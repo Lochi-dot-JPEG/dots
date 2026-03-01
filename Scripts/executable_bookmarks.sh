@@ -19,4 +19,8 @@ while IFS= read -r line; do
 done < "$BOOKMARKFILE"
 
 PICKED=$(printf "%s\n" "${links[@]}" | rofi -dmenu -case-smart -p " ")
-xdg-open "${PICKED//* /}"
+LINK="${PICKED//* /}"
+
+# Splits deliminator ; from the link line
+LINK=$(echo $LINK | cut -d";" --fields 2-)
+xdg-open $LINK
