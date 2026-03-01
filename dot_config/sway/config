@@ -21,7 +21,6 @@ set $term kitty
 # Your preferred application launcher
 set $menu rofi -show drun
 
-#set $browser zen-browser
 set $browser firefox
 set $altbrowser chromium
 set $bookmarks sh ~/Scripts/bookmarks.sh
@@ -266,6 +265,7 @@ for_window [app_id="zenity"] floating enable
 bar {
     position top
     #height 55
+	swaybar_command sleep 1; waybar
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
