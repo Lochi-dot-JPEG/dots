@@ -285,3 +285,7 @@ map("n", "<leader>j", "<cmd>Grapple select index=1<cr>", { desc = "Select tag 1"
 map("n", "<leader>k", "<cmd>Grapple select index=2<cr>", { desc = "Select tag 2" })
 map("n", "<leader>l", "<cmd>Grapple select index=3<cr>", { desc = "Select tag 3" })
 map("n", "<leader>;", "<cmd>Grapple select index=4<cr>", { desc = "Select tag 4" })
+
+
+map("n", "<leader>c", ":normal! yyp$x^wyw~A { get { return pA; } set { pA = value; } }Ipublic ",
+	{ desc = "Csharp change \"type variable;\" to public get set" })
