@@ -6,7 +6,7 @@ if [ ! -f $DAILYNOTEFILE ]; then
 		exit;
 fi
 
-TASK=$(cat  | grep "[>]" | sed 's/- \[>\] //g')
+TASK=$(cat $DAILYNOTEFILE | grep "[>]" | sed 's/- \[>\] //g')
 
 if [[ $TASK == "" ]]; then
 		exit;
