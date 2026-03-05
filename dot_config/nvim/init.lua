@@ -268,7 +268,7 @@ vim.lsp.enable({
 	"markdownlint-cli2",
 	"css-variables-language-server",
 	"css-lsp",
-	"python-lsp-server",
+	"basedpyright",
 	"qmlls",
 	"json-lsp",
 
