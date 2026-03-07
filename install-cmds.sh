@@ -1,14 +1,9 @@
 #!/bin/sh
 
 yay -Sy aseprite \
-betterdiscord-installer-bin \
-activitywatch-bin \
-pnmixer \
-ttf-ms-fonts \
-mpdris2
+ttf-ms-fonts
 
 pacman -Sy neovim \
-#awesome \
 which \
 dua-cli \
 ttf-jetbrains-mono \
@@ -23,17 +18,20 @@ xfce4-power-manager \
 zathura \
 swappy \
 slurp \
-hyprland \
 cliphist \
 dunst \
 sway \
 mpd \
 rmpc \
 termdown \
+less \
 raylib \
 bear \
 tlp \ # only really needed for laptop
+mpd-mpris
 wtype
+#awesome \
+#hyprland \
 
 mkdir ~/Pictures/Screenshots
 
@@ -45,9 +43,6 @@ git clone https://github.com/Lochi-dot-JPEG/Wallpapers
 # ctrl + S, I in tmux to install plugins
 # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-systemctl --user enable --now mpDris2.service
-# enable mpDris2 for showing mpd in waybar
-#
 git clone https://github.com/supermariofps/hatsune-miku-windows-linux-cursors /tmp/mikucursors 
 cp /tmp/mikucursors/miku-cursor-linux ~/.local/share/icons/
 

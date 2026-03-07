@@ -7,8 +7,8 @@
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: JetBrains Mono Light;
-  font-size: 14px;
+  font-family: JetBrains Mono NL;
+  font-size: 16px;
 }
 #waybar {
   padding: 5px;
@@ -60,6 +60,80 @@ button:hover {
 }
 
 #workspaces button.visible {
+  background-color: @pane2;
+  color: @fg;
+}
+#workspaces button.active {
+  background-color: @pane2;
+  color: @fg;
+}
+
+#custom-ws1.normalbutton {
+  min-width: 20px;
+  padding: 0 5px;
+  background-color: @pane;
+  color: @fg;
+}
+
+#custom-ws1.activebutton {
+  min-width: 20px;
+  padding: 0 5px;
+  background-color: @pane2;
+  color: @fg;
+}
+
+#custom-ws2.normalbutton {
+  min-width: 20px;
+  padding: 0 5px;
+  background-color: @pane;
+  color: @fg;
+}
+
+#custom-ws2.activebutton {
+  min-width: 20px;
+  padding: 0 5px;
+  background-color: @pane2;
+  color: @fg;
+}
+
+#custom-ws3.normalbutton {
+  min-width: 20px;
+  padding: 0 5px;
+  background-color: @pane;
+  color: @fg;
+}
+
+#custom-ws3.activebutton {
+  min-width: 20px;
+  padding: 0 5px;
+  background-color: @pane2;
+  color: @fg;
+}
+
+#custom-ws4.normalbutton {
+  min-width: 20px;
+  padding: 0 5px;
+  background-color: @pane;
+  color: @fg;
+}
+
+#custom-ws4.activebutton {
+  min-width: 20px;
+  padding: 0 5px;
+  background-color: @pane2;
+  color: @fg;
+}
+
+#custom-ws5.normalbutton {
+  min-width: 20px;
+  padding: 0 5px;
+  background-color: @pane;
+  color: @fg;
+}
+
+#custom-ws5.activebutton {
+  min-width: 20px;
+  padding: 0 5px;
   background-color: @pane2;
   color: @fg;
 }
@@ -132,6 +206,7 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
+#custom-workspaces,
 #mpd {
   padding: 0 10px;
   color: @fg;
@@ -295,14 +370,6 @@ label:focus {
 
 #keyboard-state > label.locked {
   background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-  background-color: transparent;
 }
 
 #privacy {
