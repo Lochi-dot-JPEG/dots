@@ -68,62 +68,10 @@ button:hover {
   color: @fg;
 }
 
-#custom-ws1.normalbutton {
-  min-width: 20px;
-  padding: 0 5px;
-  background-color: @pane;
-  color: @fg;
-}
-
-#custom-ws1.activebutton {
-  min-width: 20px;
-  padding: 0 5px;
-  background-color: @pane2;
-  color: @fg;
-}
-
-#custom-ws2.normalbutton {
-  min-width: 20px;
-  padding: 0 5px;
-  background-color: @pane;
-  color: @fg;
-}
-
-#custom-ws2.activebutton {
-  min-width: 20px;
-  padding: 0 5px;
-  background-color: @pane2;
-  color: @fg;
-}
-
-#custom-ws3.normalbutton {
-  min-width: 20px;
-  padding: 0 5px;
-  background-color: @pane;
-  color: @fg;
-}
-
-#custom-ws3.activebutton {
-  min-width: 20px;
-  padding: 0 5px;
-  background-color: @pane2;
-  color: @fg;
-}
-
-#custom-ws4.normalbutton {
-  min-width: 20px;
-  padding: 0 5px;
-  background-color: @pane;
-  color: @fg;
-}
-
-#custom-ws4.activebutton {
-  min-width: 20px;
-  padding: 0 5px;
-  background-color: @pane2;
-  color: @fg;
-}
-
+#custom-ws1.normalbutton,
+#custom-ws2.normalbutton,
+#custom-ws3.normalbutton,
+#custom-ws4.normalbutton,
 #custom-ws5.normalbutton {
   min-width: 20px;
   padding: 0 5px;
@@ -131,6 +79,10 @@ button:hover {
   color: @fg;
 }
 
+#custom-ws1.activebutton,
+#custom-ws2.activebutton,
+#custom-ws3.activebutton,
+#custom-ws4.activebutton,
 #custom-ws5.activebutton {
   min-width: 20px;
   padding: 0 5px;

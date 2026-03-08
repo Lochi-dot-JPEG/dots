@@ -9,7 +9,12 @@
     "modules-left": [
         //"custom/power",
         "tray",
-		"custom/workspaces",
+		//"custom/workspaces",
+		"custom/ws1",
+		"custom/ws2",
+		"custom/ws3",
+		"custom/ws4",
+		"custom/ws5",
         "pulseaudio",
         "backlight",
         "battery",
@@ -212,6 +217,7 @@
         "format": "{text}",
         "return-type": "json",
         "max-length": 300,
+		"on-click": "mmsg -t 1",
         "escape": true,
         "exec": "$HOME/Scripts/workspaces.sh 1" // Script in resources folder
     },
@@ -219,6 +225,7 @@
         "format": "{text}",
         "return-type": "json",
         "max-length": 300,
+		"on-click": "mmsg -t 2",
         "escape": true,
         "exec": "$HOME/Scripts/workspaces.sh 2" // Script in resources folder
     },
@@ -227,6 +234,7 @@
         "return-type": "json",
         "max-length": 300,
         "escape": true,
+		"on-click": "mmsg -t 3",
         "exec": "$HOME/Scripts/workspaces.sh 3" // Script in resources folder
     },
     "custom/ws4": {
@@ -234,6 +242,7 @@
         "return-type": "json",
         "max-length": 300,
         "escape": true,
+		"on-click": "mmsg -t 4",
         "exec": "$HOME/Scripts/workspaces.sh 4" // Script in resources folder
     },
     "custom/ws5": {
@@ -241,6 +250,7 @@
         "return-type": "json",
         "max-length": 300,
         "escape": true,
+		"on-click": "mmsg -t 5",
         "exec": "$HOME/Scripts/workspaces.sh 5" // Script in resources folder
     },
     "custom/workspaces": {
