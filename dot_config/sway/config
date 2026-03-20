@@ -21,7 +21,7 @@ set $term kitty
 # Your preferred application launcher
 set $menu rofi -show drun
 
-set $browser firefox
+set $browser librewolf
 set $altbrowser chromium
 set $bookmarks sh ~/Scripts/bookmarks.sh
 set $wallpaper sh ~/Scripts/swaywallpaper.sh
