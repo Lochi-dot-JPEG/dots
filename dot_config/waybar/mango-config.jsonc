@@ -7,20 +7,12 @@
     "spacing": 8, // Gaps between modules
     // Choose the order of the modules
     "modules-left": [
-        //"custom/power",
         "tray",
-		//"custom/workspaces",
-		"custom/ws1",
-		"custom/ws2",
-		"custom/ws3",
-		"custom/ws4",
-		"custom/ws5",
+		"custom/workspaces",
         "pulseaudio",
         "backlight",
         "battery",
         "battery#bat2"
-        //"sway/workspaces",
-		//"ext/workspaces",
     ],
     "modules-center": [
         "custom/task"
@@ -213,51 +205,11 @@
 		"interval": 3,
         "exec": "$HOME/Scripts/get_current_task.sh" // Script in resources folder
     },
-    "custom/ws1": {
-        "format": "{text}",
-        "return-type": "json",
-        "max-length": 300,
-		"on-click": "mmsg -t 1",
-        "escape": true,
-        "exec": "$HOME/.config/waybar/workspaces.sh 1" // Script in resources folder
-    },
-    "custom/ws2": {
-        "format": "{text}",
-        "return-type": "json",
-        "max-length": 300,
-		"on-click": "mmsg -t 2",
-        "escape": true,
-        "exec": "$HOME/.config/waybar/workspaces.sh 2" // Script in resources folder
-    },
-    "custom/ws3": {
-        "format": "{text}",
-        "return-type": "json",
-        "max-length": 300,
-        "escape": true,
-		"on-click": "mmsg -t 3",
-        "exec": "$HOME/.config/waybar/workspaces.sh 3" // Script in resources folder
-    },
-    "custom/ws4": {
-        "format": "{text}",
-        "return-type": "json",
-        "max-length": 300,
-        "escape": true,
-		"on-click": "mmsg -t 4",
-        "exec": "$HOME/.config/waybar/workspaces.sh 4" // Script in resources folder
-    },
-    "custom/ws5": {
-        "format": "{text}",
-        "return-type": "json",
-        "max-length": 300,
-        "escape": true,
-		"on-click": "mmsg -t 5",
-        "exec": "$HOME/.config/waybar/workspaces.sh 5" // Script in resources folder
-    },
     "custom/workspaces": {
         "format": "{text}",
         //"return-type": "json",
         "escape": true,
-        "exec": "$HOME/Scripts/textonly_workspaces.sh"
+        "exec": "$HOME/.config/waybar/textonly_workspaces.sh",
     },
     "custom/power": {
         "format" : "⏻ ",

@@ -159,6 +159,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #custom-workspaces,
+#custom-current-workspace,
 #mpd {
   padding: 0 10px;
   color: @fg;
