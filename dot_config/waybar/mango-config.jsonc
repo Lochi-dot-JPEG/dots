@@ -210,6 +210,8 @@
         //"return-type": "json",
         "escape": true,
         "exec": "$HOME/.config/waybar/textonly_workspaces.sh",
+		"on-scroll-up": "$HOME/.config/waybar/increment_mango_workspace.sh 1",
+		"on-scroll-down": "$HOME/.config/waybar/increment_mango_workspace.sh -1",
     },
     "custom/power": {
         "format" : "⏻ ",
