@@ -66,31 +66,15 @@ require("obsidian").setup({
 		return path:with_suffix(".md")
 	end,
 
-	-- Optional, customize how wiki links are formatted. You can set this to one of:
-	-- _ "use_alias_only", e.g. '[[Foo Bar]]'
-	-- _ "prepend*note_id", e.g. '[[foo-bar|Foo Bar]]'
-	-- * "prepend*note_path", e.g. '[[foo-bar.md|Foo Bar]]'
-	-- * "use_path_only", e.g. '[[foo-bar.md]]'
-	-- Or you can set it to a function that takes a table of options and returns a string, like this:
-	wiki_link_func = function(opts)
-		return require("obsidian.util").wiki_link_id_prefix(opts)
-	end,
-
-	-- Optional, customize how markdown links are formatted.
-	markdown_link_func = function(opts)
-		return require("obsidian.util").markdown_link(opts)
-	end,
 
 	-- Either 'wiki' or 'markdown'.
-	preferred_link_style = "wiki",
+	link_style = "wiki",
 
-	-- Optional, boolean or a function that takes a filename and returns a boolean.
-	-- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
-	disable_frontmatter = false,
 
 	-- Optional, alternatively you can customize the frontmatter data.
 	---@return table
 	frontmatter = {
+		enabled = true,
 		func = function(note)
 			-- Add the title of the note as an alias.
 			if note.title then
@@ -126,19 +110,7 @@ require("obsidian").setup({
 		customizations = {},
 	},
 
-	-- Sets how you follow URLs
-	---@param url string
-	follow_url_func = function(url)
-		vim.ui.open(url)
-		-- vim.ui.open(url, { cmd = { "firefox" } })
-	end,
 
-	-- Sets how you follow images
-	---@param img string
-	follow_img_func = function(img)
-		vim.ui.open(img)
-		-- vim.ui.open(img, { cmd = { "loupe" } })
-	end,
 
 	---@class obsidian.config.OpenOpts
 	---
@@ -180,11 +152,13 @@ require("obsidian").setup({
 	-- Optional, sort search results by "path", "modified", "accessed", or "created".
 	-- The recommend value is "modified" and `true` for `sort_reversed`, which means, for example,
 	-- that `:Obsidian quick_switch` will show the notes sorted by latest modified time
-	sort_by = "modified",
-	sort_reversed = true,
+	search = {
+		sort_by = "modified",
+		sort_reversed = true,
+		max_lines = 1000,
+	},
 
 	-- Set the maximum number of lines to read from notes on disk when performing certain searches.
-	search_max_lines = 1000,
 
 	-- Optional, determines how certain commands open notes. The valid options are:
 	-- 1. "current" (the default) - to always open in the current window
@@ -267,7 +241,7 @@ require("obsidian").setup({
 	---Whether to confirm the paste or not. Defaults to true.
 	---@field confirm_img_paste? boolean
 	attachments = {
-		img_folder = "assets/imgs",
+		folder = "assets/imgs",
 		img_name_func = function()
 			return string.format("Pasted image %s", os.date("%Y%m%d%H%M%S"))
 		end,

@@ -63,7 +63,6 @@ map("n", "<leader>sg", function() picker.grep() end, { desc = "Grep" })
 -- search
 map("n", '<leader>s/', function() picker.search_history() end, { desc = "Search History" })
 map("n", "<leader>q", function() picker.diagnostics() end, { desc = "Diagnostics" })
-map("n", "<leader>q", function() picker.diagnostics() end, { desc = "Diagnostics" })
 map("n", "<leader>sh", function() picker.help() end, { desc = "Help Pages" })
 map("n", "<leader>i", function() picker.icons() end, { desc = "Icons" })
 map("n", "<leader>sm", function() picker.man() end, { desc = "Man Pages" })

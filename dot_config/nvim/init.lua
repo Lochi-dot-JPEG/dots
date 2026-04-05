@@ -58,10 +58,25 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- enable lsp server
+vim.lsp.enable('tsserver')
+
+-- keymaps when LSP attaches
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function(args)
+		local opts = { buffer = args.buf }
+		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+	end,
+})
+
 -- Add packages
 require("plugin.snacks")
 vim.pack.add({
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{
+		src = "https://github.com/nvim-treesitter/nvim-treesitter",
+		version = "main",
+	},
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/folke/zen-mode.nvim" },
 
@@ -164,7 +179,16 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-require("nvim-treesitter.configs").setup({
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { '<filetype>' },
+	callback = function() vim.treesitter.start() end,
+})
+
+
+require('nvim-treesitter.configs').setup {
+
+	-- A list of parser names, or "all"
 	ensure_installed = {
 		"bash",
 		"rust",
@@ -182,20 +206,32 @@ require("nvim-treesitter.configs").setup({
 		"godot_resource",
 		"gdshader",
 	},
+
+	-- Install parsers synchronously (only applied to `ensure_installed`)
+	sync_install = false,
+
+	-- Automatically install missing parsers when entering buffer
 	auto_install = true,
+
+	-- List of parsers to ignore installing (for "all")
+	ignore_install = {},
+
 	highlight = {
+		-- `false` will disable the whole extension
 		enable = true,
-		--disable = { "markdown" },
+
+		-- list of language that will be disabled
+		disable = {},
+
+		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+		-- Using this option may slow down your editor, and you may see some duplicate highlights.
+		-- Instead of true it can also be a list of languages
+		additional_vim_regex_highlighting = false,
 	},
-	-- disable for files bigger than 100 KB
-	disable = function(lang, buf)
-		local max_filesize = 100 * 1024 -- 100 KB
-		local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-		if ok and stats and stats.size > max_filesize then
-			return true
-		end
-	end,
-})
+}
+
+
 
 -- --------------
 -- Keybindings --
@@ -211,6 +247,9 @@ map({ "n", "v", "x" }, "<leader>fb", vim.lsp.buf.format, { desc = "Format buffer
 map("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 map("n", "<leader>r", vim.lsp.buf.rename)
+map("n", "<leader>uU", function()
+	vim.pack.update()
+end, { desc = "Pack [U]pdate plugins", noremap = true, silent = true })
 
 -- Typst
 
@@ -243,7 +282,7 @@ end
 
 map("n", "<leader>h", "<cmd>lua _lazygit_toggle()<CR>", { desc = "Open Lazygit", noremap = true, silent = true })
 
-require "lspconfig".qmlls.setup {
+vim.lsp.config.qmlls = {
 	cmd = { "qmlls", "-E" }
 }
 
