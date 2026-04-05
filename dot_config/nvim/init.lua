@@ -58,17 +58,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- enable lsp server
-vim.lsp.enable('tsserver')
 
--- keymaps when LSP attaches
-vim.api.nvim_create_autocmd('LspAttach', {
-	callback = function(args)
-		local opts = { buffer = args.buf }
-		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-	end,
-})
 
 -- Add packages
 require("plugin.snacks")
@@ -186,50 +176,48 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 
-require('nvim-treesitter.configs').setup {
-
-	-- A list of parser names, or "all"
-	ensure_installed = {
-		"bash",
-		"rust",
-		"c",
-		"css",
-		"c_sharp",
-		"html",
-		"lua",
-		"luadoc",
-		"markdown",
-		"markdown_inline",
-		"vim",
-		"vimdoc",
-		"gdscript",
-		"godot_resource",
-		"gdshader",
-	},
-
-	-- Install parsers synchronously (only applied to `ensure_installed`)
-	sync_install = false,
-
-	-- Automatically install missing parsers when entering buffer
-	auto_install = true,
-
-	-- List of parsers to ignore installing (for "all")
-	ignore_install = {},
-
-	highlight = {
-		-- `false` will disable the whole extension
-		enable = true,
-
-		-- list of language that will be disabled
-		disable = {},
-
-		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-		-- Using this option may slow down your editor, and you may see some duplicate highlights.
-		-- Instead of true it can also be a list of languages
-		additional_vim_regex_highlighting = false,
-	},
+require('nvim-treesitter').install {
+	"bash",
+	"rust",
+	"c",
+	"css",
+	"c_sharp",
+	"html",
+	"lua",
+	"luadoc",
+	"markdown",
+	"markdown_inline",
+	"vim",
+	"vimdoc",
+	"gdscript",
+	"godot_resource",
+	"gdshader",
 }
+
+--require('nvim-treesitter').setup {
+--	-- Install parsers synchronously (only applied to `ensure_installed`)
+--	sync_install = false,
+--
+--	-- Automatically install missing parsers when entering buffer
+--	auto_install = true,
+--
+--	-- List of parsers to ignore installing (for "all")
+--	ignore_install = {},
+--
+--	highlight = {
+--		-- `false` will disable the whole extension
+--		enable = true,
+--
+--		-- list of language that will be disabled
+--		disable = {},
+--
+--		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+--		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+--		-- Using this option may slow down your editor, and you may see some duplicate highlights.
+--		-- Instead of true it can also be a list of languages
+--		additional_vim_regex_highlighting = false,
+--	},
+--}
 
 
 
@@ -243,10 +231,8 @@ map("n", "<leader>w", ":update<cr>", { desc = "[W]rite", noremap = true, silent 
 map("n", "<leader>W", ":SudaWrite<cr>", { desc = "[W]rite with sudo", noremap = true, silent = true })
 map("n", "<leader>Q", ":quit<cr>", { desc = "[Q]uit" })
 map("n", "<leader>ff", ":Oil<cr>", { desc = "[F]iles Oil" })
-map({ "n", "v", "x" }, "<leader>fb", vim.lsp.buf.format, { desc = "Format buffer" })
 map("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
-map("n", "<leader>r", vim.lsp.buf.rename)
 map("n", "<leader>uU", function()
 	vim.pack.update()
 end, { desc = "Pack [U]pdate plugins", noremap = true, silent = true })
@@ -314,6 +300,12 @@ vim.lsp.enable({
 
 
 })
+
+
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
+vim.keymap.set({ "n", "v", "x" }, "<leader>fb", vim.lsp.buf.format, { desc = "Format buffer" })
 
 -- Lua
 vim.keymap.set("n", "<leader>a", require("grapple").toggle)
