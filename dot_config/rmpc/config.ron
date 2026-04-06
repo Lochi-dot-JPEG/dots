@@ -126,11 +126,11 @@
 								direction: Vertical,
 								panes: [
 									(
-										size: "70%",
+										size: "50%",
 										pane: Pane(Queue)
 									),
 									(
-										size: "30%",
+										size: "50%",
 										pane: Pane(Lyrics),
 									),
 								]
@@ -139,14 +139,6 @@
 					]
 				)
             ),
-        (
-            name: "Find",
-            pane: Pane(Search),
-        ),
-       (
-            name: "Lists",
-            pane: Pane(Playlists),
-        ),
        (
             name: "Albums",
             pane: Pane(Directories),
