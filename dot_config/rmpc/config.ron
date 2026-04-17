@@ -110,8 +110,25 @@
         album_sort_by: Date,
     ),
     tabs: [
-        (
+		(
             name: "Playing",
+				pane: Split(
+					direction: Vertical,
+					size: "80%",
+					panes: [
+						(
+							size: "80%",
+							pane: Pane(AlbumArt)
+						),
+						(
+							size: "20%",
+							pane: Pane(Lyrics),
+						),
+					]
+				)
+            ),
+        (
+            name: "Queue",
 				pane: Split(
 					direction: Horizontal,
 					size: "80%",

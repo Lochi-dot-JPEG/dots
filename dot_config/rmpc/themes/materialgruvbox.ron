@@ -50,13 +50,8 @@
     ],
     layout: Split(
         direction: Vertical,
-        borders: "ALL",
+        borders: "NONE",
         panes: [
-            (
-                size: "2",
-                borders: "BOTTOM",
-                pane: Pane(Tabs),
-            ),
             (
                 size: "3",
                 pane: Split(
@@ -102,7 +97,7 @@
         rows: [
             (
                 left: [
-                    (kind: Property(Status(StateV2(playing_label: " ", paused_label: "❚❚", stopped_label: "❚❚"))), style: (fg: "#928374", modifiers: "Bold")),
+                    (kind: Property(Status(ActiveTab)), style: (fg: "#928374", modifiers: "Bold")),
                 ],
                 center: [
                     (kind: Property(Song(Title)), style: (fg: "#d4be98",modifiers: "Bold"),
