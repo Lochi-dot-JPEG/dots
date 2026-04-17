@@ -4,7 +4,6 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 setopt autocd
 unsetopt beep
-bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/lochie/.zshrc'
@@ -68,6 +67,7 @@ eval "$(zoxide init zsh)"
 
 alias ls='eza --color=auto --icons auto'
 
+bindkey -v
 
 # This fixed some egl error i was getting on qutebrowser :/
 #export LIBGL_ALWAYS_INDIRECT=0
