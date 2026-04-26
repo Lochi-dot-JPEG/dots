@@ -13,6 +13,7 @@ DIRS=(
 SINGLE_DIRS=(
     "$HOME/.local/share/chezmoi"
     "$HOME/.config"
+    "$HOME/Music/Music"
 )
 
 if [[ $# -eq 1 ]]; then

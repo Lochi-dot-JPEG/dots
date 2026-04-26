@@ -14,6 +14,7 @@ declare -A links=(
 [Textbooks]=textbook.sh
 [Define]=define.sh
 [Generate thumbnails]=generate_all_album_thumbnails.sh
+[Start Syncthing]=start-syncthing.sh
 [Godot code order]=godot_code_order.sh
 )
 
