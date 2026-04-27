@@ -53,10 +53,10 @@ alias ls='eza --color=auto --icons auto'
 eval "$(starship init zsh)"
 
 # Allow lowercases to complete to uppercase
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}'
+#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}'
 
 # Less keypresses for autocompletion
-setopt MENU_COMPLETE
+#setopt MENU_COMPLETE
 
 bindkey -v
 

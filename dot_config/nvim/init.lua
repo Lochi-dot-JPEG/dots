@@ -292,13 +292,12 @@ vim.lsp.enable({
 	"gdscript",
 	"markdownlint-cli2",
 	"css-variables-language-server",
+	"ts_ls",
 	"css-lsp",
 	"ty",
 	"ruff",
 	"qmlls",
 	"json-lsp",
-
-
 })
 
 
