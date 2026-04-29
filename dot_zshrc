@@ -43,8 +43,15 @@ export PATH="$PATH:/home/lochie/Scripts"
 export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 export PATH="$PATH:/home/lochie/.cargo/bin"
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+if [[ -d "/usr/share/zsh/plugins/zsh-syntax-highlighting" ]]; then
+		source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+		source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+		source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 source ~/.config/gruvbox-material-dark-theme.zsh
 
 alias ls='eza --color=auto --icons auto'
