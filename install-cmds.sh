@@ -1,10 +1,12 @@
 #!/bin/sh
 
 yay -Sy aseprite \
-ttf-ms-fonts
+ttf-ms-fonts \
+mangowc-git
 
 pacman -Sy neovim \
 which \
+starship \
 dua-cli \
 ttf-jetbrains-mono \
 ttf-nerd-fonts-symbols \
@@ -18,12 +20,19 @@ xfce4-power-manager \
 zathura \
 swappy \
 slurp \
+fzf \
 cliphist \
 dunst \
-sway \
 mpd \
+tree-sitter \
+tree-sitter-cli \
+tree-sitter-lua \
+webcamize \
+tokei \
+openssl \
+tealdeer \
+anki \
 rmpc \
-termdown \
 less \
 raylib \
 bear \
