@@ -12,10 +12,15 @@ require("conform").setup({
 		html = { "prettierd" },
 		css = { "prettierd" },
 		typ = { "prettypst" },
+		cs = { "lsp" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
-		timeout_ms = 500,
+		timeout_ms = 2000,
 		lsp_format = "fallback",
 	},
 })
+
+vim.keymap.set("n", "<leader>fc", function()
+	require("conform").format({ formatters = { "csharpier" } })
+end)
