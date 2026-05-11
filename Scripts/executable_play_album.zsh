@@ -10,7 +10,6 @@ for item in "$MUSICDIR/"*; do
 		#echo "item is $item"
 		ROFIIN+="$BASE\0icon\x1f/$HOME/.cache/musicthumbnails/$BASE.jpg\n"
 done
-echo $ROFIIN
 ALBUM=$(echo -en "$ROFIIN" | shuf | rofi -dmenu -case-smart -l 6 -p " " -show-icons -theme-str '
 #element-text { horizontal-align: 0.5; }
 #element-icon  { size: 128px; } 
