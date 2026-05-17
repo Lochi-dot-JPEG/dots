@@ -9,10 +9,19 @@ require("conform").setup({
 		rust = { "rustfmt", lsp_format = "fallback" },
 		-- Conform will run the first available formatter
 		--javascript = { "prettierd", "prettier", stop_after_first = true },
-		html = { "prettierd" },
 		css = { "prettierd" },
 		typ = { "prettypst" },
 		cs = { "lsp" },
+
+		html = function(bufnr)
+			local name = vim.api.nvim_buf_get_name(bufnr)
+
+			if name:match("%.njk$") then
+				return { "djlint" }
+			end
+
+			return { "prettierd" }
+		end,
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
@@ -24,3 +33,9 @@ require("conform").setup({
 vim.keymap.set("n", "<leader>fc", function()
 	require("conform").format({ formatters = { "csharpier" } })
 end)
+
+vim.filetype.add({
+	extension = {
+		njk = "html",
+	},
+})
