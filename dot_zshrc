@@ -1,25 +1,19 @@
-# The following lines were added by compinstall
-zstyle ':completion:*' completer _expand _complete _ignored _approximate
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}'
-zstyle ':completion:*' max-errors 5
-zstyle :compinstall filename '/home/lochie/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt autocd
 unsetopt beep
-bindkey -e
 # End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/lochie/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 alias tmpsound='cp -t $HOME/Documents/music/temp_soundbank/'
 alias grep='grep --color=auto'
@@ -48,24 +42,28 @@ export PATH="$PATH:/home/lochie/Scripts"
 export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 export PATH="$PATH:/home/lochie/.cargo/bin"
 
+# oh-my-zsh setup
+
+ZSH=/usr/share/oh-my-zsh/
+#ZSH_THEME="robbyrussell"
+
+plugins=(git)
 
 
-if [[ -d "/usr/share/zsh/plugins/zsh-syntax-highlighting" ]]; then
-		source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-		source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-		source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
 fi
+
+eval "$(starship init zsh)"
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/gruvbox-material-dark-theme.zsh
 
 alias ls='eza --color=auto --icons auto'
 
-# ~/.zshrc
-
-eval "$(starship init zsh)"
-
-
+bindkey -e
 
 # This fixed some egl error i was getting on qutebrowser :/
 #export LIBGL_ALWAYS_INDIRECT=0
