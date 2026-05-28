@@ -16,6 +16,7 @@ declare -A links=(
 [Generate thumbnails]=generate_all_album_thumbnails.sh
 [Start Syncthing]=start-syncthing.sh
 [Godot code order]=godot_code_order.sh
+[Read]=texts.sh
 )
 
 KEYS=""
