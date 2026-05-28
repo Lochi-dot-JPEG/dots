@@ -169,14 +169,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-
-vim.api.nvim_create_autocmd('FileType', {
-	pattern = { '<filetype>' },
-	callback = function() vim.treesitter.start() end,
-})
-
-
-require('nvim-treesitter').install {
+local treesitter_langs = {
 	"bash",
 	"rust",
 	"c",
@@ -194,30 +187,47 @@ require('nvim-treesitter').install {
 	"gdshader",
 }
 
---require('nvim-treesitter').setup {
---	-- Install parsers synchronously (only applied to `ensure_installed`)
---	sync_install = false,
---
---	-- Automatically install missing parsers when entering buffer
---	auto_install = true,
---
---	-- List of parsers to ignore installing (for "all")
---	ignore_install = {},
---
---	highlight = {
---		-- `false` will disable the whole extension
---		enable = true,
---
---		-- list of language that will be disabled
---		disable = {},
---
---		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
---		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
---		-- Using this option may slow down your editor, and you may see some duplicate highlights.
---		-- Instead of true it can also be a list of languages
---		additional_vim_regex_highlighting = false,
---	},
---}
+for i = 1, #treesitter_langs do              -- #v is the size of v for lists.
+	local treesitter_lang = treesitter_langs[i] -- Indices start at 1 !! SO CRAZY!
+	vim.api.nvim_create_autocmd('FileType', {
+		pattern = { treesitter_lang },
+		callback = function()
+			vim.treesitter.start()
+		end,
+	})
+end
+
+
+
+require('nvim-treesitter').install {
+	treesitter_langs
+}
+
+require('nvim-treesitter').setup {
+	ensure_installed = { 'gdscript', 'godot_resource', 'gdshader' },
+	-- Install parsers synchronously (only applied to `ensure_installed`)
+	sync_install = false,
+
+	-- Automatically install missing parsers when entering buffer
+	auto_install = true,
+
+	-- List of parsers to ignore installing (for "all")
+	ignore_install = {},
+
+	highlight = {
+		-- `false` will disable the whole extension
+		enable = true,
+
+		-- list of language that will be disabled
+		disable = {},
+
+		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+		-- Using this option may slow down your editor, and you may see some duplicate highlights.
+		-- Instead of true it can also be a list of languages
+		additional_vim_regex_highlighting = false,
+	},
+}
 
 
 

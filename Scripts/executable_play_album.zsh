@@ -2,7 +2,7 @@
 
 MUSICDIR=$HOME/Music/Music
 #ALBUMS=$(ls $MUSICDIR)
-ALBUMS=$(ls $MUSICDIR | shuf)
+ALBUMS=$(ls $MUSICDIR)
 
 ROFIIN=""
 for item in "$MUSICDIR/"*; do

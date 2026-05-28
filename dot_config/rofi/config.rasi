@@ -1,6 +1,6 @@
 @theme "gruvbox_material.rasi"
 configuration {
-/*	modes: "window,drun,run,ssh";*/
+	modes: "window,drun,run,ssh,filebrowser";
 	font: "JetBrains mono 14";
 /*	location: 0;*/
 /*	yoffset: 0;*/
