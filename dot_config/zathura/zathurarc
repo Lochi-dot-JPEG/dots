@@ -35,8 +35,10 @@ set render-loading-fg           "#d4be98" # fg0
 set pages-per-row               1
 
 # Recolor book content's color
-#set recolor-lightcolor          "#32302f" # bg0
-#set recolor-darkcolor           "#d4be98" # fg0
-#set recolor                     "true"
-#set recolor-keephue             true      # keep original color
+set recolor-lightcolor          "#32302f" # bg0
+#set recolor-lightcolor          "#d4be98" # bg0
+#set recolor-darkcolor          "#32302f" # bg0
+set recolor-darkcolor           "#d4be98" # fg0
+set recolor                     "true"
+set recolor-keephue             true      # keep original color
 
