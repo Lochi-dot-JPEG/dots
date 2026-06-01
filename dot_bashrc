@@ -29,3 +29,7 @@ xset r rate 200 30
 
 # Created by `pipx` on 2024-11-03 06:02:38
 export PATH="$PATH:$HOME/.local/bin"
+
+# terminal-wakatime setup
+export PATH="$HOME/.wakatime:$PATH"
+eval "$(terminal-wakatime init)"

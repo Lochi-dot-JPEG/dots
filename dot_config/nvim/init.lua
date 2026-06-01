@@ -62,6 +62,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 require("plugin.snacks")
 vim.pack.add({
 	{
+		src = "https://github.com/wakatime/vim-wakatime",
+	},
+	{
 		src = "https://github.com/nvim-treesitter/nvim-treesitter",
 		version = "main",
 	},
@@ -184,7 +187,7 @@ local treesitter_langs = {
 	"gdshader",
 }
 
-for i = 1, #treesitter_langs do -- #v is the size of v for lists.
+for i = 1, #treesitter_langs do              -- #v is the size of v for lists.
 	local treesitter_lang = treesitter_langs[i] -- Indices start at 1 !! SO CRAZY!
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = { treesitter_lang },
