@@ -58,8 +58,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-
-
 -- Add packages
 require("plugin.snacks")
 vim.pack.add({
@@ -68,14 +66,12 @@ vim.pack.add({
 		version = "main",
 	},
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
-	{ src = "https://github.com/folke/zen-mode.nvim" },
 
 	{
 		src = "https://github.com/cbochs/grapple.nvim",
 		opts = {
 			icons = false,
-		}
-
+		},
 	},
 	{
 		src = "https://github.com/saghen/blink.cmp",
@@ -88,8 +84,8 @@ vim.pack.add({
 		{
 			opts = {
 				filewatching = "auto",
-			}
-		}
+			},
+		},
 	},
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
@@ -116,6 +112,7 @@ require("mason").setup({
 })
 require("color-picker").setup()
 require("plugin.obsidian")
+require("plugin.zenmode")
 require("oil").setup({
 	lsp_file_methods = {
 		enabled = true,
@@ -187,9 +184,9 @@ local treesitter_langs = {
 	"gdshader",
 }
 
-for i = 1, #treesitter_langs do              -- #v is the size of v for lists.
+for i = 1, #treesitter_langs do -- #v is the size of v for lists.
 	local treesitter_lang = treesitter_langs[i] -- Indices start at 1 !! SO CRAZY!
-	vim.api.nvim_create_autocmd('FileType', {
+	vim.api.nvim_create_autocmd("FileType", {
 		pattern = { treesitter_lang },
 		callback = function()
 			vim.treesitter.start()
@@ -197,14 +194,12 @@ for i = 1, #treesitter_langs do              -- #v is the size of v for lists.
 	})
 end
 
+require("nvim-treesitter").install({
+	treesitter_langs,
+})
 
-
-require('nvim-treesitter').install {
-	treesitter_langs
-}
-
-require('nvim-treesitter').setup {
-	ensure_installed = { 'gdscript', 'godot_resource', 'gdshader' },
+require("nvim-treesitter").setup({
+	ensure_installed = { "gdscript", "godot_resource", "gdshader" },
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
 
@@ -227,9 +222,7 @@ require('nvim-treesitter').setup {
 		-- Instead of true it can also be a list of languages
 		additional_vim_regex_highlighting = false,
 	},
-}
-
-
+})
 
 -- --------------
 -- Keybindings --
@@ -279,19 +272,18 @@ end
 map("n", "<leader>h", "<cmd>lua _lazygit_toggle()<CR>", { desc = "Open Lazygit", noremap = true, silent = true })
 
 vim.lsp.config.qmlls = {
-	cmd = { "qmlls", "-E" }
+	cmd = { "qmlls", "-E" },
 }
 
-vim.lsp.config('gdscript', {})
+vim.lsp.config("gdscript", {})
 
-vim.lsp.config("tinymist",
-	{
-		settings = {
-			formatterMode = "typstyle",
-			exportPdf = "onType",
-			semanticTokens = "disable",
-		},
-	})
+vim.lsp.config("tinymist", {
+	settings = {
+		formatterMode = "typstyle",
+		exportPdf = "onType",
+		semanticTokens = "disable",
+	},
+})
 vim.lsp.config("roslyn", {})
 
 vim.lsp.enable({
@@ -310,9 +302,8 @@ vim.lsp.enable({
 	"json-lsp",
 })
 
-
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
 vim.keymap.set({ "n", "v", "x" }, "<leader>fb", vim.lsp.buf.format, { desc = "Format buffer" })
 
@@ -327,6 +318,9 @@ map("n", "<leader>k", "<cmd>Grapple select index=2<cr>", { desc = "Select tag 2"
 map("n", "<leader>l", "<cmd>Grapple select index=3<cr>", { desc = "Select tag 3" })
 map("n", "<leader>;", "<cmd>Grapple select index=4<cr>", { desc = "Select tag 4" })
 
-
-map("n", "<leader>c", ":normal! yyp$x^wyw~A { get { return pA; } set { pA = value; } }Ipublic ",
-	{ desc = "Csharp change \"type variable;\" to public get set" })
+map(
+	"n",
+	"<leader>c",
+	":normal! yyp$x^wyw~A { get { return pA; } set { pA = value; } }Ipublic ",
+	{ desc = 'Csharp change "type variable;" to public get set' }
+)
