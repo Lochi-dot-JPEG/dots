@@ -174,6 +174,7 @@ local treesitter_langs = {
 	"rust",
 	"c",
 	"css",
+	"javascript",
 	"c_sharp",
 	"html",
 	"lua",
@@ -187,7 +188,7 @@ local treesitter_langs = {
 	"gdshader",
 }
 
-for i = 1, #treesitter_langs do              -- #v is the size of v for lists.
+for i = 1, #treesitter_langs do -- #v is the size of v for lists.
 	local treesitter_lang = treesitter_langs[i] -- Indices start at 1 !! SO CRAZY!
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = { treesitter_lang },
