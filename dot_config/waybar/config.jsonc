@@ -28,7 +28,7 @@
     ],
 	"image#album-art": {
 		"exec": "~/Scripts/get_album_art.sh",
-		"size": 28,
+		"size": 24,
 		"interval": 100,
 		"signal": 8,
 		"on-click": "mpc toggle"
@@ -196,7 +196,9 @@
             "default": ""
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        //"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+		"interval": 2,
+        "exec": "$HOME/.config/waybar/light_mediaplayer.sh" // Script in resources folder
     },
     "custom/task": {
         "format": "{text}",
