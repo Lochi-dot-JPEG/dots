@@ -1,9 +1,9 @@
 /*@import '../../.cache/wal/colors-waybar.css';*/
 
-@define-color bg #32302f;
-@define-color fg #d4be98;
-@define-color pane #3c3836;
-@define-color pane2 #504945;
+@define-color bg #1f1f28;
+@define-color fg #dcd7ba;
+@define-color pane #2a2a37;
+@define-color pane2 #1f1f28;
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
@@ -24,8 +24,6 @@ button {
   /* Use box-shadow instead of border so the text isn't offset */
   box-shadow: inset 0 -3px transparent;
   /* Avoid rounded borders under each button name */
-  border: none;
-  border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
