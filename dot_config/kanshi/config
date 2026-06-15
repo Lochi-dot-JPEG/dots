@@ -1,5 +1,5 @@
 profile external-only {
-		output HDMI-A-1 enable
+		output DP-1 mode 2560x1440@100 enable position 0,0
 		output eDP-1 disable
 }
 
@@ -10,3 +10,4 @@ profile desktop {
 profile laptop {
 		output eDP-1 enable position 0,0
 }
+
