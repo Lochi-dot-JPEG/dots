@@ -1,6 +1,16 @@
 vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
 require("conform").setup({
+	formatters = {
+		["markdownlint-cli2"] = {
+			condition = function(_, ctx)
+				local diag = vim.tbl_filter(function(d)
+					return d.source == "markdownlint"
+				end, vim.diagnostic.get(ctx.buf))
+				return #diag > 0
+			end,
+		},
+	},
 	formatters_by_ft = {
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially
@@ -13,6 +23,7 @@ require("conform").setup({
 		javascript = { "prettierd" },
 		typ = { "prettypst" },
 		cs = { "lsp" },
+		markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
 
 		html = function(bufnr)
 			local name = vim.api.nvim_buf_get_name(bufnr)
@@ -60,7 +71,6 @@ require("conform").setup({
 		return { timeout_ms = 500, lsp_format = "fallback" }
 	end,
 })
-
 
 vim.api.nvim_create_user_command("FormatDisable", function(args)
 	if args.bang then
