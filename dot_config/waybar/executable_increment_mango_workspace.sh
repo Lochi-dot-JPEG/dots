@@ -1,10 +1,10 @@
 #!/bin/sh
 
-FOCUSEDLINE=$(mmsg -g -t | grep "tag . 1")
-FOCUSED=${FOCUSEDLINE: -7: 1}
+LINE=$(mmsg get all-tags)
+FOCUSED=$(echo "$LINE" | jq '.all_tags[].tags[] | select(.is_active == true) | .index')
 
 NEW=$(($FOCUSED + $1))
 
 if [[ $NEW < 6 && $NEW > 0 ]]; then
-		mmsg -t $NEW
+		mmsg dispatch view, $NEW
 fi

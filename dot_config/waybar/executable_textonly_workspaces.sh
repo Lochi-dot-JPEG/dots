@@ -1,11 +1,9 @@
 #!/bin/sh
 
-mmsg -w -t | grep --line-buffered "clients" | while read -r line; do
-		FOCUSEDLINE=$(mmsg -g -t | grep "tag . 1")
-		FOCUSED=${FOCUSEDLINE: -7: 1}
+mmsg watch all-tags | while read -r line; do
+		FOCUSED=$(echo "$line" | jq '.all_tags[].tags[] | select(.is_active == true) | .index')
 		if [[ $FOCUSED == "1" ]]; then
 			echo     
-			#echo $FOCUSED     
 		elif [[ $FOCUSED == "2" ]]; then
 			echo     
 		elif [[ $FOCUSED == "3" ]]; then

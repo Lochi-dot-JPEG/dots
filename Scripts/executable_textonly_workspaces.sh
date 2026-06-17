@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 #mmsg -w -t | grep --line-buffered "clients" | while read -r line; do
 #mmsg -w -t | while read -r line; do
 		#TAGLINE=$(mmsg -g -t | grep "tag $1")
@@ -15,14 +15,12 @@
 #done
 
 
-mmsg -w -t | grep --line-buffered "clients" | while read -r line; do
+mmsg watch all-tags | while read -r line; do
 		OUT=" "
-		MSG=$(mmsg -g -t)
+		echo "hi"
 		for x in 1 2 3 4 5; do
-				TAGLINE=$(echo "$MSG" | grep "tag $x")
-				IS_FOCUSED=${TAGLINE: -5: 1}
-				if [[ $IS_FOCUSED == 1 ]]; then
-						#OUT="${OUT} $x"
+				IS_FOCUSED=$(echo $line | jq --argjson id "$x" '.all_tags[].tags[] | select(.index == $id) | .is_active')
+				if [[ $IS_FOCUSED == "true" ]]; then
 						OUT="${OUT}$x"
 				else
 						OUT="${OUT}$x"
