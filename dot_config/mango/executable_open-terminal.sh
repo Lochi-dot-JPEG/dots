@@ -1,7 +1,7 @@
 #!/bin/sh
 
-mmsg -t 4
+mmsg dispatch view,4
 
-if [[ $(mmsg -g -c | grep kitty) == "" ]]; then
+if [[ $(mmsg get focusing-client | grep kitty) == "" ]]; then
 		kitty --hold sh -c ~/Scripts/firstterm.sh
 fi
