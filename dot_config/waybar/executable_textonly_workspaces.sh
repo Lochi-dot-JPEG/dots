@@ -1,7 +1,9 @@
 #!/bin/sh
 
-mmsg watch all-tags | while read -r line; do
-		FOCUSED=$(echo "$line" | jq '.all_tags[].tags[] | select(.is_active == true) | .index')
+#mmsg watch all-tags | while read -r line; do
+#		FOCUSED=$(echo "$line" | jq '.all_tags[].tags[] | select(.is_active == true) | .index')
+mmsg watch focusing-client | while read -r line; do
+		FOCUSED=$(echo "$line" | jq '.tags[]')
 		if [[ $FOCUSED == "1" ]]; then
 			echo     
 		elif [[ $FOCUSED == "2" ]]; then
