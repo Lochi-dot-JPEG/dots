@@ -1,7 +1,6 @@
 #!/bin/sh
 
-LINE=$(mmsg get all-tags)
-FOCUSED=$(echo "$LINE" | jq '.all_tags[].tags[] | select(.is_active == true) | .index')
+FOCUSED=$(mmsg get all-monitors | jq '.monitors[] | select(.active == true).tags[] | select(.is_active == true).index')
 
 NEW=$(($FOCUSED + $1))
 

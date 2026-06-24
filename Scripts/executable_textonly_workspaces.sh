@@ -15,12 +15,12 @@
 #done
 
 
+				#IS_FOCUSED=$(echo $line | jq --argjson id "$x" '.all_tags[].tags[] | select(.index == $id) | .is_active')
 mmsg watch all-tags | while read -r line; do
 		OUT=" "
-		echo "hi"
+		FOCUSED=$(mmsg get all-monitors | jq '.monitors[] | select(.active == true).tags[] | select(.is_active == true) | .index')
 		for x in 1 2 3 4 5; do
-				IS_FOCUSED=$(echo $line | jq --argjson id "$x" '.all_tags[].tags[] | select(.index == $id) | .is_active')
-				if [[ $IS_FOCUSED == "true" ]]; then
+				if [[ $FOCUSED == $x ]]; then
 						OUT="${OUT}$x"
 				else
 						OUT="${OUT}$x"
