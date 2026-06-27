@@ -1,4 +1,4 @@
-@theme "gruvbox_material.rasi"
+@theme "kanagawa-paper.rasi"
 configuration {
 	modes: "window,drun,run,ssh,filebrowser";
 	font: "JetBrains mono 14";

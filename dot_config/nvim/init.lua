@@ -279,7 +279,6 @@ vim.lsp.config.qmlls = {
 	cmd = { "qmlls", "-E" },
 }
 
-vim.lsp.config("gdscript", {})
 
 vim.lsp.config("tinymist", {
 	settings = {

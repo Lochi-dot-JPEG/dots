@@ -12,9 +12,9 @@
         "pulseaudio",
         "backlight",
         "battery",
-        "hyprland/workspaces",
-        "sway/workspaces",
-		"ext/workspaces",
+        //"hyprland/workspaces",
+        "sway/workspaces"
+		//"ext/workspaces",
     ],
     "modules-center": [
         "custom/task",

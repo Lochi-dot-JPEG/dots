@@ -1,4 +1,5 @@
 -- Taken from https://simondalvai.org/blog/godot-neovim/
+vim.lsp.config("gdscript", {})
 
 -- paths to check for project.godot file
 local paths_to_check = { '/', '/../' }
