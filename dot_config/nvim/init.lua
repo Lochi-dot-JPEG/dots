@@ -115,6 +115,7 @@ require("mason").setup({
 })
 require("color-picker").setup()
 require("plugin.obsidian")
+--require("plugin.orgmode")
 require("plugin.zenmode")
 require("oil").setup({
 	lsp_file_methods = {
@@ -278,7 +279,6 @@ map("n", "<leader>h", "<cmd>lua _lazygit_toggle()<CR>", { desc = "Open Lazygit",
 vim.lsp.config.qmlls = {
 	cmd = { "qmlls", "-E" },
 }
-
 
 vim.lsp.config("tinymist", {
 	settings = {
