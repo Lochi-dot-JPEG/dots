@@ -14,6 +14,8 @@ SINGLE_DIRS=(
     "$HOME/.local/share/chezmoi"
     "$HOME/.config"
     "$HOME/Music/Music"
+    "$HOME/LegacyProjects/archived/"
+    "$HOME/LegacyProjects/hiatus/"
 )
 
 if [[ $# -eq 1 ]]; then

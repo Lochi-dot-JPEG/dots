@@ -1,7 +1,8 @@
 #!/bin/zsh
 
 TEXTBOOKS=$HOME/Texts/textbooks/
-BOOKS=$(ls $TEXTBOOKS)
+cd $TEXTBOOKS
+BOOKS=$(find -type f)
 BOOK=$(echo $BOOKS | rofi -dmenu -case-smart)
 if [[ "$BOOK" == "" ]]; then
 		exit

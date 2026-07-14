@@ -28,6 +28,7 @@ alias dr='dotnet run --no-restore'
 alias dua="dua i"
 alias ncdu="dua i"
 alias l="eza -l"
+alias aseprite-lines="~/LegacyProjects/bin/aseprite"
 
 alias s="~/Scripts/tmux-session-dispensary.sh"
 bright() (
