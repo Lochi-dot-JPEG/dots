@@ -4,8 +4,6 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 setopt autocd
 unsetopt beep
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
 zstyle :compinstall filename '/home/lochie/.zshrc'
 
 autoload -Uz compinit
@@ -26,7 +24,6 @@ alias lg="lazygit"
 alias cha="chezmoi apply"
 alias dr='dotnet run --no-restore'
 alias dua="dua i"
-alias ncdu="dua i"
 alias l="eza -l"
 alias aseprite-lines="~/LegacyProjects/bin/aseprite"
 
@@ -47,11 +44,6 @@ export PATH="$PATH:/home/lochie/.emacs.d/bin/"
 
 # oh-my-zsh setup
 
-ZSH=/usr/share/oh-my-zsh/
-#ZSH_THEME="robbyrussell"
-
-plugins=(git)
-
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -59,10 +51,8 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 eval "$(starship init zsh)"
-source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/gruvbox-material-dark-theme.zsh
 
 alias ls='eza --color=auto --icons auto'
 
@@ -72,7 +62,3 @@ bindkey -e
 #export LIBGL_ALWAYS_INDIRECT=0
 #export __GLX_VENDOR_LIBRARY_NAME=nvidia
 #export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
-
-# terminal-wakatime setup
-#export PATH="$HOME/.wakatime:$PATH"
-#eval "$(terminal-wakatime init)"
