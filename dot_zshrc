@@ -4,7 +4,16 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 setopt autocd
 unsetopt beep
+
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}'
+zstyle ':completion:*' max-errors 5
 zstyle :compinstall filename '/home/lochie/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
 
 autoload -Uz compinit
 compinit
@@ -18,7 +27,7 @@ alias grep='grep --color=auto'
 alias game='cd /home/lochie/Documents/Game/'
 alias blahajfetch="fastfetch --logo blahaj"
 PS1='[\u@\h \W]\$ '
-alias vi="nvim"
+alias v="nvim"
 alias chz="chezmoi"
 alias lg="lazygit"
 alias cha="chezmoi apply"
@@ -56,7 +65,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias ls='eza --color=auto --icons auto'
 
-bindkey -e
+bindkey -v
 
 # This fixed some egl error i was getting on qutebrowser :/
 #export LIBGL_ALWAYS_INDIRECT=0
