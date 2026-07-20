@@ -1,0 +1,24 @@
+clear_on_pause = true
+allowed_players = []
+
+[cover.provider]
+provider = ["catbox"]
+
+[cover.provider.catbox]
+# user_hash = "your_user_hash" # optional: lets you delete uploads later
+use_litter = true
+litter_hours = 72
+
+[player.mpd]
+details = "{{{title}}}"
+state = "{{{album}}} - {{{artist_display}}}"
+status_display_type = "state"
+
+[player.music_player_daemon]
+ignore = true
+
+[player.default]
+status_display_type = "state"
+
+[player.firefox] 
+ignore = true
