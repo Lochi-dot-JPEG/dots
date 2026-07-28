@@ -189,7 +189,7 @@ local treesitter_langs = {
 	"gdshader",
 }
 
-for i = 1, #treesitter_langs do -- #v is the size of v for lists.
+for i = 1, #treesitter_langs do              -- #v is the size of v for lists.
 	local treesitter_lang = treesitter_langs[i] -- Indices start at 1 !! SO CRAZY!
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = { treesitter_lang },
@@ -327,3 +327,17 @@ map(
 	":normal! yyp$x^wyw~A { get { return pA; } set { pA = value; } }Ipublic ",
 	{ desc = 'Csharp change "type variable;" to public get set' }
 )
+
+
+-- block splitting
+vim.api.nvim_create_user_command("Split", function()
+	vim.notify("No splits!", vim.log.levels.WARN)
+end, {})
+
+vim.cmd([[
+  cnoreabbrev <expr> vsplit getcmdtype() == ':' && getcmdline() ==# 'vsplit' ? 'Split' : 'vsplit'
+  cnoreabbrev <expr> vsp    getcmdtype() == ':' && getcmdline() ==# 'vsp'    ? 'Split' : 'vsp'
+  cnoreabbrev <expr> vs    getcmdtype() == ':' && getcmdline() ==# 'vs'    ? 'Split' : 'vs'
+  cnoreabbrev <expr> split getcmdtype() == ':' && getcmdline() ==# 'split' ? 'Split' : 'split'
+  cnoreabbrev <expr> sp    getcmdtype() == ':' && getcmdline() ==# 'sp'    ? 'Split' : 'sp'
+]])

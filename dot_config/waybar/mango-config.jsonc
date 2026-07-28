@@ -23,7 +23,8 @@
         "custom/media",
         //"network",
         //"temperature",
-        "clock"
+        "clock",
+        "memory"
     ],
 
 	"image#album-art": {
@@ -115,7 +116,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{used}G/{total}G"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -248,7 +249,7 @@
                 "4": " ",
                 "5": "󰙨",
                 "default": ""
-            },
+            }
     },
     "river/tags": {
         "num-tags": 5
