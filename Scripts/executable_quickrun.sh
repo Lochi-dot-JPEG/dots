@@ -7,7 +7,7 @@ CATEGORY="GENERAL"
 # Creates an associative array
 # Display name: script path from ~/Scripts/
 declare -A links=(
-[0 Textbooks]=textbook.sh
+[0 Textbooks]="textbook.sh zathura" 
 [1 Read]="texts.sh zathura"
 [2 Pick album]=play_album.zsh
 [3 Bookmarks]=bookmarks.sh

@@ -24,22 +24,21 @@ if [[ "$selected" == "STOP" ]]; then
 else
     timew start "$selected"
     tmux set -g status-right "$selected #(timew | awk '/^ *Total/ {print \$NF}')"
-
-		if [[ "$selected" == "WASTE" ]]; then
-			hostess rm studio.youtube.com
-			hostess rm www.youtube.com
-			hostess rm www.reddit.com
-			hostess rm www.x.com
-			hostess rm www.discord.com
-			hostess rm discord.com
-		else
-			hostess add studio.youtube.com 127.0.0.1
-			hostess add www.youtube.com 127.0.0.1
-			hostess add www.reddit.com 127.0.0.1
-			hostess add www.x.com 127.0.0.1
-			hostess add www.linkedin.com 127.0.0.1
-			hostess add www.discord.com
-			hostess add discord.com
-		fi
+#		if [[ "$selected" == "WASTE" ]]; then
+#			hostess rm studio.youtube.com
+#			hostess rm www.youtube.com
+#			hostess rm www.reddit.com
+#			hostess rm www.x.com
+#			hostess rm www.discord.com
+#			hostess rm discord.com
+#		else
+#			hostess add studio.youtube.com 127.0.0.1
+#			hostess add www.youtube.com 127.0.0.1
+#			hostess add www.reddit.com 127.0.0.1
+#			hostess add www.x.com 127.0.0.1
+#			hostess add www.linkedin.com 127.0.0.1
+#			hostess add www.discord.com
+#			hostess add discord.com
+#		fi
 
 fi

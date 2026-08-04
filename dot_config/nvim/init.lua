@@ -235,6 +235,7 @@ require("nvim-treesitter").setup({
 
 local map = vim.keymap.set
 
+map("n", "<leader>=", ":.s/.*/\\=eval(submatch(0))/<CR><Esc>", { desc = "evaluate line" })
 map("n", "<leader>w", ":update<cr>", { desc = "[W]rite", noremap = true, silent = true })
 map("n", "<leader>W", ":SudaWrite<cr>", { desc = "[W]rite with sudo", noremap = true, silent = true })
 map("n", "<leader>Q", ":quit<cr>", { desc = "[Q]uit" })
