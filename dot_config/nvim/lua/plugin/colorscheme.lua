@@ -34,5 +34,5 @@ local colors = require("kanagawa-paper.colors")
 local palette_colors = colors.palette
 vim.api.nvim_set_hl(0, "@markup.strong", {
 	bold = true,
-	fg = palette_colors.lotusRed,
+	fg = palette_colors.canvasOrange1,
 })

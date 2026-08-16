@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/obsidian-nvim/obsidian.nvim", })
+vim.pack.add({ "https://github.com/obsidian-nvim/obsidian.nvim" })
 
 require("obsidian").setup({
 	legacy_commands = false,
@@ -29,7 +29,6 @@ require("obsidian").setup({
 		-- Optional, if you want `Obsidian yesterday` to return the last work day or `Obsidian tomorrow` to return the next work day.
 		workdays_only = false,
 	},
-
 
 	-- Where to put new notes. Valid options are
 	-- _ "current_dir" - put new notes in same directory as the current buffer.
@@ -66,10 +65,8 @@ require("obsidian").setup({
 		return path:with_suffix(".md")
 	end,
 
-
 	-- Either 'wiki' or 'markdown'.
 	link_style = "wiki",
-
 
 	-- Optional, alternatively you can customize the frontmatter data.
 	---@return table
@@ -109,8 +106,6 @@ require("obsidian").setup({
 		--- See: https://github.com/obsidian-nvim/obsidian.nvim/wiki/Template#customizations
 		customizations = {},
 	},
-
-
 
 	---@class obsidian.config.OpenOpts
 	---
@@ -192,7 +187,6 @@ require("obsidian").setup({
 		-- Runs anytime the workspace is set/changed.
 		---@param workspace obsidian.Workspace
 		post_set_workspace = function(workspace) end,
-
 	},
 
 	-- Optional, configure additional syntax highlighting / extmarks.
@@ -266,7 +260,7 @@ require("obsidian").setup({
 	---@field order? string[]
 	checkbox = {
 		order = { " ", "x", "!", ">" },
-	}
+	},
 })
 
 local map = vim.keymap.set

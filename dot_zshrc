@@ -35,7 +35,7 @@ alias dr='dotnet run --no-restore'
 alias dua="dua i"
 alias l="eza -l"
 alias aseprite-lines="~/LegacyProjects/bin/aseprite"
-alias seman="apropos"
+alias goodbye="systemctl poweroff"
 
 alias s="~/Scripts/tmux-session-dispensary.sh"
 bright() (
