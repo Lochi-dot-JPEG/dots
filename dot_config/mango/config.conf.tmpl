@@ -23,7 +23,7 @@ exec=sh ~/Scripts/mpd_start.sh
 
 # Window effect
 {{ if eq .chezmoi.hostname "vangelis" -}}
-blur=1
+blur=0
 blur_layer=0
 blur_optimized=1
 blur_params_num_passes = 2
@@ -182,7 +182,9 @@ bind=SUPER,e,spawn,sh ~/.config/mango/open-terminal.sh
 bind=SUPER,w,spawn,librewolf
 bind=SUPER+SHIFT,w,spawn,chromium
 bind=SUPER,p,spawn,sh ~/Scripts/quickrun.sh
+bind=SUPER,r,spawn,sh ~/Scripts/quickrun.sh
 bind=SUPER,Tab, spawn, sh ~/Scripts/swaywallpaper.sh
+bind=SUPER,period, spawn, rofimoji -a clipboard --clipboarder wl-copy
 
 # Apply config
 bind=SUPER,c, spawn, chezmoi apply
@@ -310,7 +312,7 @@ layerrule=animation_type_close:zoom,layer_name:rofi
 # Music
 windowrule=tags:1,appid:rmpc
 windowrule=tags:1,appid:nicotine
-windowrule=tags:2,appid:steam
+windowrule=tags:1,appid:steam
 
 # PDFs
 windowrule=tags:2,appid:zathura

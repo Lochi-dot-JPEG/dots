@@ -257,12 +257,12 @@ map("n", "<leader>tp", ":TypstPreviewToggle<cr>", { desc = "[T]ypst [P]review", 
 
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
-	cmd = "lazygit",
+	cmd = "gitui",
 	hidden = true,
 	dir = "git_dir",
 	direction = "float",
 	float_opts = {
-		border = "curved",
+		border = "single",
 	},
 	on_open = function(term)
 		vim.cmd("startinsert!")

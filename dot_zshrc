@@ -14,6 +14,15 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Source - https://superuser.com/a/585004
+# Posted by Francisco, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-08-15, License - CC BY-SA 3.0
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 
 autoload -Uz compinit
 compinit
@@ -39,8 +48,14 @@ alias goodbye="systemctl poweroff"
 
 alias s="~/Scripts/tmux-session-dispensary.sh"
 bright() (
+	if [[ $(hostnamectl hostname) == "vangelis" ]] then
+		ddcutil -d 1 set 10 "$@"
+    else
     brightnessctl set "$@"%
+	fi
 )
+
+
 # https://askubuntu.com/questions/1506717/how-do-i-tell-man-to-use-batcat-to-view-man-pages
 xset r rate 200 30
 
@@ -66,7 +81,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias ls='eza --color=auto --icons auto'
 
-bindkey -v
+bindkey -e
 
 # This fixed some egl error i was getting on qutebrowser :/
 #export LIBGL_ALWAYS_INDIRECT=0

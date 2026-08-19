@@ -13,11 +13,11 @@
         "backlight",
         "battery",
         //"hyprland/workspaces",
-        "sway/workspaces"
+        //"sway/workspaces"
 		//"ext/workspaces",
     ],
     "modules-center": [
-        "custom/task",
+        "custom/task"
 	],
     "modules-right": [
         "image#album-art",
