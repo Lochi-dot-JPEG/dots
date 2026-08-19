@@ -5,7 +5,10 @@ exec-once=nm-applet
 exec-once=nicotine -s
 exec-once=kitty --hold sh -c ~/Scripts/firstterm.sh
 exec-once=obsidian
-#exec-once=steam -silent
+{{ if eq .chezmoi.hostname "vangelis" -}}
+exec-once=steam -silent
+{{ end -}}
+
 exec-once=otd-daemon
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
 exec-once=/usr/lib/xdg-desktop-portal-wlr

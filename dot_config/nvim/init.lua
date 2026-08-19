@@ -115,6 +115,8 @@ require("mason").setup({
 })
 require("color-picker").setup()
 require("plugin.obsidian")
+require("plugin.outline")
+require("plugin.autolist")
 --require("plugin.orgmode")
 require("plugin.zenmode")
 require("oil").setup({
@@ -189,7 +191,7 @@ local treesitter_langs = {
 	"gdshader",
 }
 
-for i = 1, #treesitter_langs do              -- #v is the size of v for lists.
+for i = 1, #treesitter_langs do -- #v is the size of v for lists.
 	local treesitter_lang = treesitter_langs[i] -- Indices start at 1 !! SO CRAZY!
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = { treesitter_lang },
@@ -328,7 +330,6 @@ map(
 	":normal! yyp$x^wyw~A { get { return pA; } set { pA = value; } }Ipublic ",
 	{ desc = 'Csharp change "type variable;" to public get set' }
 )
-
 
 -- block splitting
 vim.api.nvim_create_user_command("Split", function()
