@@ -83,6 +83,8 @@ alias ls='eza --color=auto --icons auto'
 
 bindkey -e
 
+eval "$(zoxide init zsh)"
+
 # This fixed some egl error i was getting on qutebrowser :/
 #export LIBGL_ALWAYS_INDIRECT=0
 #export __GLX_VENDOR_LIBRARY_NAME=nvidia

@@ -3,7 +3,11 @@
 TEXTBOOKS=$HOME/Texts/textbooks/
 cd $TEXTBOOKS
 BOOKS=$(find -type f)
-BOOK=$(echo $BOOKS | rofi -dmenu -case-smart)
+if [[ $2 == "" ]]; then
+		BOOK=$(echo $BOOKS | rofi -dmenu -case-smart)
+else
+		BOOK=$2
+fi
 if [[ "$BOOK" == "" ]]; then
 		exit
 fi

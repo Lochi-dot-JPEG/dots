@@ -26,7 +26,8 @@ less \
 raylib \
 bear \
 tlp \ # only really needed for laptop
-mpd-mpris
+mpd-mpris \
+man-pages \
 wtype
 #awesome \
 #hyprland \

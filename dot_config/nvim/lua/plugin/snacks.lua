@@ -106,9 +106,16 @@ end, { desc = "Quickfix List" })
 map("n", "<leader>s'", function()
 	picker.resume()
 end, { desc = "Resume" })
-map("n", "<leader>sc", function()
+
+map("n", "<leader>scd", function()
+	vim.opt.background = "dark"
 	picker.colorschemes()
-end, { desc = "Colorschemes" })
+end, { desc = "Colorschemes Dark" })
+
+map("n", "<leader>scl", function()
+	vim.opt.background = "light"
+	picker.colorschemes()
+end, { desc = "Colorschemes Light" })
 
 -- LSP
 map("n", "gd", function()
