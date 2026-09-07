@@ -4,23 +4,27 @@
 
 word=${1:-$(xclip -o -selection primary 2>/dev/null || wl-paste 2>/dev/null)}
 
+word=$(echo $word | xargs)
 # Check for empty word or special characters
 [[ -z "$word" || "$word" =~ [\/] ]] && notify-send -h string:bgcolor:#bf616a -t 3000 "Invalid input." && exit 0
 
-query=$(curl -s --connect-timeout 5 --max-time 10 "https://api.dictionaryapi.dev/api/v2/entries/en_US/$word")
+OUT=$(dict -d gcide "$word")
 
+notify-send -t 30000 "$word - $OUT"
+
+#query=$(curl -s --connect-timeout 5 --max-time 10 "https://api.dictionaryapi.dev/api/v2/entries/en/$word")
 # Check for connection error (curl exit status stored in $?)
-[ $? -ne 0 ] && notify-send -h string:bgcolor:#bf616a -t 3000 "Connection error." && exit 1
-
-# Check for invalid word response
-[[ "$query" == *"No Definitions Found"* ]] && notify-send -h string:bgcolor:#bf616a -t 3000 "Invalid word." && exit 0
-
-# Show only first 3 definitions
-def=$(echo "$query" | jq -r '[.[].meanings[] | {pos: .partOfSpeech, def: .definitions[].definition}] | .[:3].[] | "\n\(.pos). \(.def)"')
-
-# Requires a notification daemon to be installed
-notify-send -t 30000 "$word -" "$def"
-
+#[ $? -ne 0 ] && notify-send -h string:bgcolor:#bf616a -t 3000 "Connection error." && exit 1
+#
+## Check for invalid word response
+#[[ "$query" == *"No Definitions Found"* ]] && notify-send -h string:bgcolor:#bf616a -t 3000 "Invalid word." && exit 0
+#
+## Show only first 3 definitions
+#def=$(echo "$query" | jq -r '[.[].meanings[] | {pos: .partOfSpeech, def: .definitions[].definition}] | .[:3].[] | "\n\(.pos). \(.def)"')
+#
+## Requires a notification daemon to be installed
+#notify-send -t 30000 "$word -" "$def"
+#
 
 ### MORE OPTIONS :)
 

@@ -332,14 +332,14 @@ map(
 )
 
 -- block splitting
-vim.api.nvim_create_user_command("Split", function()
-	vim.notify("No splits!", vim.log.levels.WARN)
-end, {})
-
-vim.cmd([[
-  cnoreabbrev <expr> vsplit getcmdtype() == ':' && getcmdline() ==# 'vsplit' ? 'Split' : 'vsplit'
-  cnoreabbrev <expr> vsp    getcmdtype() == ':' && getcmdline() ==# 'vsp'    ? 'Split' : 'vsp'
-  cnoreabbrev <expr> vs    getcmdtype() == ':' && getcmdline() ==# 'vs'    ? 'Split' : 'vs'
-  cnoreabbrev <expr> split getcmdtype() == ':' && getcmdline() ==# 'split' ? 'Split' : 'split'
-  cnoreabbrev <expr> sp    getcmdtype() == ':' && getcmdline() ==# 'sp'    ? 'Split' : 'sp'
-]])
+--vim.api.nvim_create_user_command("Split", function()
+--	vim.notify("No splits!", vim.log.levels.WARN)
+--end, {})
+--
+--vim.cmd([[
+--  cnoreabbrev <expr> vsplit getcmdtype() == ':' && getcmdline() ==# 'vsplit' ? 'Split' : 'vsplit'
+--  cnoreabbrev <expr> vsp    getcmdtype() == ':' && getcmdline() ==# 'vsp'    ? 'Split' : 'vsp'
+--  cnoreabbrev <expr> vs    getcmdtype() == ':' && getcmdline() ==# 'vs'    ? 'Split' : 'vs'
+--  cnoreabbrev <expr> split getcmdtype() == ':' && getcmdline() ==# 'split' ? 'Split' : 'split'
+--  cnoreabbrev <expr> sp    getcmdtype() == ':' && getcmdline() ==# 'sp'    ? 'Split' : 'sp'
+--]])
