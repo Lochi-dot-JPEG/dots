@@ -11,13 +11,15 @@ declare -A links=(
 [1 Read]="texts.sh zathura"
 [2 Pick album]=play_album.zsh
 [3 Bookmarks]=bookmarks.sh
-[4 Random album]=random_album.zsh
-[5 Define]=define.sh
-[6 Generate thumbnails]=generate_all_album_thumbnails.sh
-[7 Start Syncthing]=start-syncthing.sh
-[8 Godot order]=godot_code_order.sh
-[9 Annotate]="texts.sh okular"
-[90 Textbooks]="textbook.sh zathura" 
+[Random album]=random_album.zsh
+[Define]=define.sh
+[Generate thumbnails]=generate_all_album_thumbnails.sh
+[Start Syncthing]=start-syncthing.sh
+[Godot order]=godot_code_order.sh
+[Annotate]="texts.sh okular"
+[Unblock Site]="unblock_site_terminal_opener.sh"
+[Open Clipboard URL]="clipboard_url.sh"
+[Textbooks]="textbook.sh zathura" 
 )
 
 KEYS=""

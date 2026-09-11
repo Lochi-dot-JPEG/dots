@@ -2,4 +2,4 @@
 
 Xephyr -br -ac -noreset -screen 1600x900 :1 &
 sleep 1
-DISPLAY=:1 dwm
+DISPLAY=:1 i3

@@ -45,6 +45,7 @@ alias dua="dua i"
 alias l="eza -l"
 alias aseprite-lines="~/LegacyProjects/bin/aseprite"
 alias goodbye="systemctl poweroff"
+alias icat="kitten icat"
 
 alias s="~/Scripts/tmux-session-dispensary.sh"
 bright() (
