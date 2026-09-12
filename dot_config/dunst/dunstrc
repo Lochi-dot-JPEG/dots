@@ -3,6 +3,7 @@ separator_color= frame
 font = Noto Sans
 origin = top-right
 offset = (0, 0)
+height = (0, 1000)
 
 
 [urgency_low]
