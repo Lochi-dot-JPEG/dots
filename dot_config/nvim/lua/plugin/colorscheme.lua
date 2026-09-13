@@ -29,11 +29,12 @@ require("kanagawa-paper").setup({
 		type = { italic = true },
 	},
 })
+
+vim.cmd([[colorscheme kanagawa-paper]])
+
 local colors = require("kanagawa-paper.colors")
 local palette_colors = colors.palette
 vim.api.nvim_set_hl(0, "@markup.strong", {
 	bold = true,
 	fg = palette_colors.canvasOrange1,
 })
-
-vim.cmd([[colorscheme kanagawa-paper]])
